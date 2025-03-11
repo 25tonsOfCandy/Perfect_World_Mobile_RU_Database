@@ -45,21 +45,43 @@ def check_exists_all_important_directories():
 
 
 # GENERATORS OF CARDS
-def generate_bestiary_cards(names_list: list, descrition: list):
-    pass
+def generate_bestiary_cards(names_list: list, source_list: list, description_list: list):
+    property_start_end_str = "---"
+    property_stats_str = "stats: "
+    property_tier_str = "tier: "
+    property_source_str = "source: "
+    placeholder_str = "![[Temp/Placeholder_Bestiary.png]]"
+    placeholder_skill_name_str = "SkillNamePlaceholder"
+    set_str = "# Связи"
+
+    element_number = 0
+
+    for name in names_list:
+        with open('bestiary/' + str(name) + '.md', 'w', encoding='UTF-8') as bestiary_file:
+            bestiary_file.write(property_start_end_str + '\n')
+            bestiary_file.write(property_stats_str + '\n')
+            bestiary_file.write(property_tier_str + '\n')
+            bestiary_file.write(property_source_str + str(source_list[element_number]) + '\n')
+            bestiary_file.write(property_start_end_str + '\n')
+            bestiary_file.write(placeholder_str + '\n')
+            bestiary_file.write(placeholder_skill_name_str + '\n')
+            bestiary_file.write(description_list[element_number] + '\n')
+            
+            element_number += 1
+
 
 
 def main():
     check_exists_all_important_directories()
 
     if PRESET == "BESTIARY":
-        raw_data = get_data_from_xlsx_file('test.xlsx', [1, 2, 4])
+        raw_data = get_data_from_xlsx_file(filename = 'test.xlsx', column_list = [1, 2, 4])
         column1 = next(raw_data)
         column2 = next(raw_data)
         column3 = next(raw_data)
         write_list_to_file(column1, 'bestiary/test.md')
 
-        print(column1, column2, column3, sep="   ")
+        # print(column1, column2, column3, sep="   ")
 
     if PRESET == "":
         return 0

@@ -61,7 +61,10 @@ def generate_bestiary_cards(names_list: list, source_list: list, description_lis
             bestiary_file.write(property_start_end_str + '\n')
             bestiary_file.write(property_stats_str + '\n')
             bestiary_file.write(property_tier_str + '\n')
-            bestiary_file.write(property_source_str + str(source_list[element_number]) + '\n')
+            if source_list[element_number]  != None:
+                bestiary_file.write(property_source_str + str(source_list[element_number]) + '\n')
+            else: 
+                bestiary_file.write(property_source_str + "Информация отсутствует" + '\n')
             bestiary_file.write(property_start_end_str + '\n')
             bestiary_file.write(placeholder_str + '\n')
             bestiary_file.write(placeholder_skill_name_str + '\n')
@@ -75,11 +78,12 @@ def main():
     check_exists_all_important_directories()
 
     if PRESET == "BESTIARY":
-        raw_data = get_data_from_xlsx_file(filename = 'test.xlsx', column_list = [1, 2, 4])
-        column1 = next(raw_data)
-        column2 = next(raw_data)
-        column3 = next(raw_data)
-        write_list_to_file(column1, 'bestiary/test.md')
+        raw_data = get_data_from_xlsx_file(filename = 'Bestiary_Skills_Source_RUCHNames.xlsx', column_list = [3, 4, 5])
+        names_list = next(raw_data)
+        description_list = next(raw_data)
+        source_list = next(raw_data)
+
+        generate_bestiary_cards(names_list, source_list, description_list)
 
         # print(column1, column2, column3, sep="   ")
 

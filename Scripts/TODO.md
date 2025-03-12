@@ -80,7 +80,7 @@ def get_content_from_table(filename: str, column0: str or int, column1: str or i
 		- [x] вероятно нужно проверять наличие папки или ловить исключение, создавать папку и делать еще разочек запись
 			- [x] принято решение перед запуском программы проверять наличие всех необходимых директорий
 - [x] Запись в файл list не очень подходит под задачу, поэтому запись в файл была реализована внутри модуля генерации карточек
-- [ ] Добавить замену пустых значений в Source на "Информация отсутствует"
+- [x] Добавить замену пустых значений в Source на "Информация отсутствует"
 
 
 
@@ -125,7 +125,7 @@ def check_exists_all_important_directories():
             os.makedirs(directory)
 ```
 
-Генерация карточек (не тестил)
+Генерация карточек
 ```python
 def generate_bestiary_cards(names_list: list, source_list: list, description_list: list):
     property_start_end_str = "---"
@@ -143,7 +143,10 @@ def generate_bestiary_cards(names_list: list, source_list: list, description_lis
             bestiary_file.write(property_start_end_str + '\n')
             bestiary_file.write(property_stats_str + '\n')
             bestiary_file.write(property_tier_str + '\n')
-            bestiary_file.write(property_source_str + str(source_list[element_number]) + '\n')
+            if source_list[element_number]  != None:
+                bestiary_file.write(property_source_str + str(source_list[element_number]) + '\n')
+            else: 
+                bestiary_file.write(property_source_str + "Информация отсутствует" + '\n')
             bestiary_file.write(property_start_end_str + '\n')
             bestiary_file.write(placeholder_str + '\n')
             bestiary_file.write(placeholder_skill_name_str + '\n')

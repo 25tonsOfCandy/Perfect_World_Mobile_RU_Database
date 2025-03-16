@@ -200,9 +200,9 @@ def generate_bestiary_sets(sets_list: list, sets_bonus_list: list, sets_bonus_va
         with open('bestiary_sets/' + str(set) + '.md', 'w', encoding='UTF-8') as bestiary_set_file:
             bestiary_set_file.write(property_start_end_str + '\n')
             bestiary_set_file.write(property_set_bonus_str + sets_bonus_list[element_number] + '\n')
-            bestiary_set_file.write(property_set_bonus_value_str + sets_bonus_value_list[element_number] + '\n')
+            bestiary_set_file.write(property_set_bonus_value_str + str(sets_bonus_value_list[element_number]) + '\n')
             bestiary_set_file.write(property_start_end_str + '\n')
-            bestiary_set_file.write(set + 'в отряде:' + sets_bonus_list[element_number] + '+' + sets_bonus_value_list[element_number] + '\n')
+            bestiary_set_file.write(set + 'в отряде:' + sets_bonus_list[element_number] + '+' + str(sets_bonus_value_list[element_number]) + '\n')
 
             element_number += 1
 ```

@@ -5,9 +5,10 @@ import openpyxl
 import os
 # PRESETS
 # BESTIARY - for generating bestiary cards
+# BESTIARY_SETS - for generating bestiary sets pages
 # NULL ("") - do nothing
-PRESET = "BESTIARY"
-DIRECTORIES = ['bestiary'] # Important directories for checking
+PRESET = "BESTIARY_SETS"
+DIRECTORIES = ['bestiary', 'bestiary_sets'] # Important directories for checking
 
 
 # UTILS
@@ -52,7 +53,7 @@ def generate_bestiary_cards(names_list: list, source_list: list, description_lis
     property_source_str = "source: "
     placeholder_str = "![[Temp/Placeholder_Bestiary.png]]"
     placeholder_skill_name_str = "SkillNamePlaceholder"
-    set_str = "# Связи"
+    # set_str = "# Связи"
 
     element_number = 0
 
@@ -73,6 +74,22 @@ def generate_bestiary_cards(names_list: list, source_list: list, description_lis
             element_number += 1
 
 
+def generate_bestiary_sets(sets_list: list, sets_bonus_list: list, sets_bonus_value_list: list):
+    property_start_end_str = "---"
+    property_set_bonus_str = "bonus: "
+    property_set_bonus_value_str = "value: "
+    element_number = 0
+    
+    for set in sets_list:
+        with open('bestiary_sets/' + str(set) + '.md', 'w', encoding='UTF-8') as bestiary_set_file:
+            bestiary_set_file.write(property_start_end_str + '\n')
+            bestiary_set_file.write(property_set_bonus_str + sets_bonus_list[element_number] + '\n')
+            bestiary_set_file.write(property_set_bonus_value_str + sets_bonus_value_list[element_number] + '\n')
+            bestiary_set_file.write(property_start_end_str + '\n')
+            bestiary_set_file.write(set + 'в отряде:' + sets_bonus_list[element_number] + '+' + sets_bonus_value_list[element_number] + '\n')
+
+            element_number += 1
+
 
 def main():
     check_exists_all_important_directories()
@@ -84,13 +101,32 @@ def main():
         source_list = next(raw_data)
 
         generate_bestiary_cards(names_list, source_list, description_list)
-
-        # print(column1, column2, column3, sep="   ")
-
-    if PRESET == "":
         return 0
 
 
+    elif PRESET == "BESTIARY_SETS":
+        raw_data = get_data_from_xlsx_file(filename = 'BestiarySetBonuses.xlsx', column_list = [1, 2, 3])
+        sets_list = next(raw_data)
+        sets_bonus_list = next(raw_data)
+        sets_bonus_value_list = next(raw_data)
+
+        print(sets_list)
+        # generate_bestiary_sets(sets_list, sets_bonus_list, sets_bonus_value_list)
+        return 0
+
+    if PRESET == "":
+        return 1
+    else:
+        return 2
+
 
 if __name__ == '__main__':
-    main()
+    result = main()
+    if result == 1:
+        print('Preset is empty')
+
+    elif result == 2:
+        print('Wrong preset')
+
+    else: print("Complete!")
+    

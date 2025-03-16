@@ -1,5 +1,5 @@
 
-
+# Генерация карточек бестиария
 Что у меня есть?
 Данные в табличках вида Excel.
 	- Список всех **(проверить)** карточек бестиария 
@@ -152,5 +152,57 @@ def generate_bestiary_cards(names_list: list, source_list: list, description_lis
             bestiary_file.write(placeholder_skill_name_str + '\n')
             bestiary_file.write(description_list[element_number] + '\n')
             
+            element_number += 1
+```
+
+# Генерация карточек связей
+
+Что я хочу?
+- Вынести все связи в отдельные карточки
+- Иметь ссылки на карточки внутри этих связей
+- Названия этих связей
+- Оно должно выглядеть примерно так:
+	- Свойства
+		- Что за стат дает
+		- Значение этого стата
+	- Что за карточки нужны для этой связи
+
+Что нужно сделать?
+- Написать скрипт, который будет автоматически генерировать эти карточки
+	- По аналогии с прошлой генерицией
+- Подготовить все необходимые данные
+	- Наименование связи
+		- Буду использовать имена карточек, которые участвуют в связи
+		- Их же буду писать со ссылками внутрь файла
+	- Что за стат дает связь
+	- Сколько стата дает связь
+- Добавить ссылки в эти карточки
+	- Думаю надо сделать это на этапе подготовки данных
+
+Процесс
+- [ ] Написать модуль генерации
+	- [ ] Протестить
+- [x] Подготовить данные
+	- [x] Данные готовы, но надо добавить ссылки на все карточки сразу
+		- [x] Думаю что хороший вариант вытаскивать необходимые ссылки из обсидиана и вставлять их куда надо
+			- [x] Нет, все равно много косяков будет, хз даже че делать, надо либо подумать либо руками уже делать и не париться
+				- [x] очень хочу уже так сделать сил нет
+
+Генерация карточек (не тестил)
+```python
+def generate_bestiary_sets(sets_list: list, sets_bonus_list: list, sets_bonus_value_list: list):
+    property_start_end_str = "---"
+    property_set_bonus_str = "bonus: "
+    property_set_bonus_value_str = "value: "
+    element_number = 0
+    
+    for set in sets_list:
+        with open('bestiary_sets/' + str(set) + '.md', 'w', encoding='UTF-8') as bestiary_set_file:
+            bestiary_set_file.write(property_start_end_str + '\n')
+            bestiary_set_file.write(property_set_bonus_str + sets_bonus_list[element_number] + '\n')
+            bestiary_set_file.write(property_set_bonus_value_str + sets_bonus_value_list[element_number] + '\n')
+            bestiary_set_file.write(property_start_end_str + '\n')
+            bestiary_set_file.write(set + 'в отряде:' + sets_bonus_list[element_number] + '+' + sets_bonus_value_list[element_number] + '\n')
+
             element_number += 1
 ```

@@ -1,14 +1,15 @@
 """
 """
-
+from CardGenerator import CardGenerator
 import openpyxl
 import os
 # PRESETS
 # BESTIARY - for generating bestiary cards
 # BESTIARY_SETS - for generating bestiary sets pages
+# GLYPHS - for generating glyph cards
 # NULL ("") - do nothing
-PRESET = "BESTIARY_SETS"
-DIRECTORIES = ['bestiary', 'bestiary_sets'] # Important directories for checking
+PRESET = "GLYPHS"
+DIRECTORIES = ['bestiary', 'bestiary_sets', 'glyphs'] # Important directories for checking
 
 
 # UTILS
@@ -45,62 +46,16 @@ def check_exists_all_important_directories():
             os.makedirs(directory)
 
 
-# GENERATORS OF CARDS
-def generate_bestiary_cards(names_list: list, source_list: list, description_list: list):
-    property_start_end_str = "---"
-    property_stats_str = "stats: "
-    property_tier_str = "tier: "
-    property_source_str = "source: "
-    placeholder_str = "![[Temp/Placeholder_Bestiary.png]]"
-    placeholder_skill_name_str = "SkillNamePlaceholder"
-    # set_str = "# Связи"
-
-    element_number = 0
-
-    for name in names_list:
-        with open('bestiary/' + str(name) + '.md', 'w', encoding='UTF-8') as bestiary_file:
-            bestiary_file.write(property_start_end_str + '\n')
-            bestiary_file.write(property_stats_str + '\n')
-            bestiary_file.write(property_tier_str + '\n')
-            if source_list[element_number]  != None:
-                bestiary_file.write(property_source_str + str(source_list[element_number]) + '\n')
-            else: 
-                bestiary_file.write(property_source_str + "Информация отсутствует" + '\n')
-            bestiary_file.write(property_start_end_str + '\n')
-            bestiary_file.write(placeholder_str + '\n')
-            bestiary_file.write(placeholder_skill_name_str + '\n')
-            bestiary_file.write(description_list[element_number] + '\n')
-            
-            element_number += 1
-
-
-def generate_bestiary_sets(sets_list: list, sets_bonus_list: list, sets_bonus_value_list: list):
-    property_start_end_str = "---"
-    property_set_bonus_str = "bonus: "
-    property_set_bonus_value_str = "value: "
-    element_number = 0
-    
-    for set in sets_list:
-        with open('bestiary_sets/' + str(set) + '.md', 'w', encoding='UTF-8') as bestiary_set_file:
-            bestiary_set_file.write(property_start_end_str + '\n')
-            bestiary_set_file.write(property_set_bonus_str + sets_bonus_list[element_number] + '\n')
-            bestiary_set_file.write(property_set_bonus_value_str + str(sets_bonus_value_list[element_number]) + '\n')
-            bestiary_set_file.write(property_start_end_str + '\n')
-            bestiary_set_file.write(set + 'в отряде:' + sets_bonus_list[element_number] + '+' + str(sets_bonus_value_list[element_number]) + '\n')
-
-            element_number += 1
-
-
 def main():
     check_exists_all_important_directories()
-
+    generator = CardGenerator()
     if PRESET == "BESTIARY":
         raw_data = get_data_from_xlsx_file(filename = 'Bestiary_Skills_Source_RUCHNames.xlsx', column_list = [3, 4, 5])
         names_list = next(raw_data)
         description_list = next(raw_data)
         source_list = next(raw_data)
 
-        generate_bestiary_cards(names_list, source_list, description_list)
+        generator.generate_bestiary_cards(names_list, source_list, description_list)
         return 0
 
 
@@ -110,7 +65,18 @@ def main():
         sets_bonus_list = next(raw_data)
         sets_bonus_value_list = next(raw_data)
 
-        generate_bestiary_sets(sets_list, sets_bonus_list, sets_bonus_value_list)
+        generator.generate_bestiary_sets(sets_list, sets_bonus_list, sets_bonus_value_list)
+        return 0
+
+
+    elif PRESET == "GLYPHS":
+        raw_data = get_data_from_xlsx_file(filename = 'Glyphs.xlsx', column_list = [2, 3, 4, 5])
+        glyph_names_list = next(raw_data)
+        glyph_description_list = next(raw_data)
+        glyph_stats_list = next(raw_data)
+        glyph_stat_values_list = next(raw_data)
+
+        generator.generate_glyph_cards(glyph_names_list, glyph_description_list, glyph_stats_list, glyph_stat_values_list)
         return 0
 
     if PRESET == "":

@@ -15,6 +15,7 @@ class CardGenerator:
         # image placeholders
         self.bestiary_placeholder_str = "![[Temp/Placeholder_Bestiary.png]]"
         self.glyph_placeholder_str = "![[Temp/Placeholder_Glyph.png]]"
+        self.bestiary_part_placeholder_str = "![[Temp/Placeholder_Bestiary_Part.png]]"
 
         # string placeholders
         self.placeholder_skill_name_str = "SkillNamePlaceholder"
@@ -64,6 +65,20 @@ class CardGenerator:
                 glyph_file.write(self.property_stat_str + str(glyph_stats_list[element_number]) + '\n')
                 glyph_file.write(self.property_value_str + str(glyph_stat_values_list[element_number]) + '\n')
                 glyph_file.write(self.property_start_end_str + '\n')
+                glyph_file.write(self.glyph_placeholder_str + '\n')
                 glyph_file.write(str(glyph_description_list[element_number]) + '\n')
+
+                element_number += 1
+
+    def generate_bestiary_part_cards(self, bestiary_part_names_list: list, bestiary_part_descriptions_list: list):
+        element_number = 0
+    
+        for bestiary_part_name in bestiary_part_names_list:
+            with open('glyphs/' + str(bestiary_part_name) + '.md', 'w', encoding='UTF-8') as bestiary_part_file:
+                bestiary_part_file.write(self.property_start_end_str + '\n')
+                bestiary_part_file.write(self.property_item_type_str + 'Глиф' + '\n')
+                bestiary_part_file.write(self.property_start_end_str + '\n')
+                bestiary_part_file.write(self.bestiary_part_placeholder_str + '\n')
+                bestiary_part_file.write(str(bestiary_part_descriptions_list[element_number]) + '\n')
 
                 element_number += 1

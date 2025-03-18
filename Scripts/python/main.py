@@ -7,8 +7,9 @@ import os
 # BESTIARY - for generating bestiary cards
 # BESTIARY_SETS - for generating bestiary sets pages
 # GLYPHS - for generating glyph cards
+# BESTIARY_PARTS - for generating bestiary parts
 # NULL ("") - do nothing
-PRESET = "GLYPHS"
+PRESET = "BESTIARY_PARTS"
 DIRECTORIES = ['bestiary', 'bestiary_sets', 'glyphs'] # Important directories for checking
 
 
@@ -77,6 +78,13 @@ def main():
         glyph_stat_values_list = next(raw_data)
 
         generator.generate_glyph_cards(glyph_names_list, glyph_description_list, glyph_stats_list, glyph_stat_values_list)
+        return 0
+
+    elif PRESET == "BESTIARY_PARTS":
+        raw_data = get_data_from_xlsx_file(filename='BestiaryParts.xlsx', column_list=[1, 2])
+        bestiary_part_names_list = next(raw_data)
+        bestiary_part_descriptions_list = next(raw_data)
+        generator.generate_bestiary_part_cards(bestiary_part_names_list, bestiary_part_descriptions_list)
         return 0
 
     if PRESET == "":

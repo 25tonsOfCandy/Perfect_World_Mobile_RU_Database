@@ -216,9 +216,40 @@ def generate_bestiary_sets(sets_list: list, sets_bonus_list: list, sets_bonus_va
 Написать скрипт, который будет генерировать странички следующего вида:
 	Свойства:
 		itemtype
+		stat
+		value
 	Картинка
 	Описание предмета
 Как я хочу это сделать?
 Во-первых, хочется вынести все генераторы в отдельный файл/класс
 Во-вторых, некоторые вещи хочется вынести из всех генераторов. 
 В остальном все так же как и было.
+
+```python
+    def generate_glyph_cards(self, glyph_list: list, glyph_description_list: list, glyph_stats_list: list, glyph_stat_values_list: list):
+        element_number = 0
+        
+        for glyph_name in glyph_list:
+            with open('glyphs/' + str(glyph_name) + '.md', 'w', encoding='UTF-8') as glyph_file:
+                glyph_file.write(self.property_start_end_str + '\n')
+                glyph_file.write(self.property_item_type_str + 'Глиф' + '\n')
+                glyph_file.write(self.property_stat_str + str(glyph_stats_list[element_number]) + '\n')
+                glyph_file.write(self.property_value_str + str(glyph_stat_values_list[element_number]) + '\n')
+                glyph_file.write(self.property_start_end_str + '\n')
+                glyph_file.write(self.glyph_placeholder_str + '\n')
+                glyph_file.write(str(glyph_description_list[element_number]) + '\n')
+
+                element_number += 1
+```
+
+# Генерация частей Бестиария
+Что я хочу?
+Автоматически создать все карточки для частей карт бестиария. Верификация - руками.
+
+Что мне нужно сделать?
+Написать скрипт, который будет генерировать странички следующего вида:
+	Свойства:
+		itemtype
+	Картинка
+	Описание предмета
+

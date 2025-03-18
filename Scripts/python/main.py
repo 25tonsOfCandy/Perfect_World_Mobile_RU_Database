@@ -10,7 +10,7 @@ import os
 # BESTIARY_PARTS - for generating bestiary parts
 # NULL ("") - do nothing
 PRESET = "BESTIARY_PARTS"
-DIRECTORIES = ['bestiary', 'bestiary_sets', 'glyphs'] # Important directories for checking
+DIRECTORIES = ['bestiary', 'bestiary_sets', 'glyphs', 'bestiary_parts'] # Important directories for checking
 
 
 # UTILS
@@ -81,7 +81,7 @@ def main():
         return 0
 
     elif PRESET == "BESTIARY_PARTS":
-        raw_data = get_data_from_xlsx_file(filename='BestiaryParts.xlsx', column_list=[1, 2])
+        raw_data = get_data_from_xlsx_file(filename='BestiaryParts.xlsx', column_list=[2, 3])
         bestiary_part_names_list = next(raw_data)
         bestiary_part_descriptions_list = next(raw_data)
         generator.generate_bestiary_part_cards(bestiary_part_names_list, bestiary_part_descriptions_list)

@@ -74,11 +74,11 @@ class CardGenerator:
         element_number = 0
     
         for bestiary_part_name in bestiary_part_names_list:
-            with open('glyphs/' + str(bestiary_part_name) + '.md', 'w', encoding='UTF-8') as bestiary_part_file:
+            with open('bestiary_parts/' + str(bestiary_part_name) + '.md', 'w', encoding='UTF-8') as bestiary_part_file:
                 bestiary_part_file.write(self.property_start_end_str + '\n')
-                bestiary_part_file.write(self.property_item_type_str + 'Глиф' + '\n')
+                bestiary_part_file.write(self.property_item_type_str + 'Часть духа' + '\n')
                 bestiary_part_file.write(self.property_start_end_str + '\n')
                 bestiary_part_file.write(self.bestiary_part_placeholder_str + '\n')
                 bestiary_part_file.write(str(bestiary_part_descriptions_list[element_number]) + '\n')
-
+                print(bestiary_part_name)
                 element_number += 1

@@ -8,9 +8,10 @@ import os
 # BESTIARY_SETS - for generating bestiary sets pages
 # GLYPHS - for generating glyph cards
 # BESTIARY_PARTS - for generating bestiary parts
+# BESTIARY_SHINE - for generating bestiary shine cards
 # NULL ("") - do nothing
-PRESET = "BESTIARY_PARTS"
-DIRECTORIES = ['bestiary', 'bestiary_sets', 'glyphs', 'bestiary_parts'] # Important directories for checking
+PRESET = "BESTIARY_SHINE"
+DIRECTORIES = ['bestiary', 'bestiary_sets', 'glyphs', 'bestiary_parts', 'bestiary_shine'] # Important directories for checking
 
 
 # UTILS
@@ -85,6 +86,13 @@ def main():
         bestiary_part_names_list = next(raw_data)
         bestiary_part_descriptions_list = next(raw_data)
         generator.generate_bestiary_part_cards(bestiary_part_names_list, bestiary_part_descriptions_list)
+        return 0
+
+    elif PRESET == 'BESTIARY_SHINE':
+        raw_data = get_data_from_xlsx_file(filename='BestiaryShine.xlsx', column_list=[2, 3])
+        bestiary_shine_names_list = next(raw_data)
+        bestiary_shine_descriptions_list = next(raw_data)
+        generator.generate_bestiary_shine_cards(bestiary_shine_names_list, bestiary_shine_descriptions_list)
         return 0
 
     if PRESET == "":

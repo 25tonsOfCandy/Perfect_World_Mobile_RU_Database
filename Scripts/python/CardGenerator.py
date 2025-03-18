@@ -16,7 +16,8 @@ class CardGenerator:
         self.bestiary_placeholder_str = "![[Temp/Placeholder_Bestiary.png]]"
         self.glyph_placeholder_str = "![[Temp/Placeholder_Glyph.png]]"
         self.bestiary_part_placeholder_str = "![[Temp/Placeholder_Bestiary_Part.png]]"
-
+        self.bestiary_shine_placeholder_str = "![[Temp/Placeholder_Bestiary_Shine.png]]"
+        
         # string placeholders
         self.placeholder_skill_name_str = "SkillNamePlaceholder"
 
@@ -82,3 +83,20 @@ class CardGenerator:
                 bestiary_part_file.write(str(bestiary_part_descriptions_list[element_number]) + '\n')
                 print(bestiary_part_name)
                 element_number += 1
+
+    
+    def generate_bestiary_shine_cards(self, bestiary_shine_names_list: list, bestiary_shine_descriptions_list: list):
+        index = 0
+
+        for index, bestiary_shine_name in enumerate(bestiary_shine_names_list):
+            file_path = f"bestiary_shine/{bestiary_shine_name}.md"
+            content =( 
+            f"{self.property_start_end_str}\n"
+            f"{self.property_item_type_str}Дух Блеск\n"
+            f"{self.property_start_end_str}\n"
+            f"{self.bestiary_shine_placeholder_str}\n"
+            f"{bestiary_shine_descriptions_list[index]}\n"
+            )
+
+            with open(file_path, 'w', encoding="UTF-8") as bestiary_shine_file:
+                bestiary_shine_file.write(content)

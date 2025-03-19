@@ -3,7 +3,7 @@ TRIGGERS = {
     "BESTIARY_SETS": False,
     "GLYPHS": False,
     "BESTIARY_PARTS": False,
-    "BESTIARY_SHINE": False,
+    "BESTIARY_SHINE": True,
 }
 
 DIRECTORIES = ['bestiary',

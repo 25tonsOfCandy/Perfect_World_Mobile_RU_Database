@@ -1,8 +1,10 @@
+from abc import ABC, abstractmethod
 from Utils import Utils
-Utils = Utils()
 
-class CardGenerator:
+
+class CardGenerator(ABC):
     def __init__(self):
+        self.utils = Utils()
         # base
         self.start_end_str = "---"
         
@@ -14,6 +16,7 @@ class CardGenerator:
         self.value_str = "value: "
         self.item_type_str = "itemtype: "
         self.stat_str = "stat: "
+        self.utils = Utils()
         
         # image placeholders
         self.placeholder_bestiary = "![[Temp/Placeholder_Bestiary.png]]"
@@ -24,9 +27,17 @@ class CardGenerator:
         # string placeholders
         self.placeholder_skill_name = "SkillNamePlaceholder"
 
-    
-    def generate_bestiary_cards(self, names_list: list, source_list: list, description_list: list):
-        index = 0
+    def _create_file(self, file_path, content):
+        self.utils.write_content_to_file(file_path, content)
+
+
+    @abstractmethod
+    def generate(self, *args):
+        pass
+
+
+class BestiaryCardGenerator(CardGenerator):
+    def generate(self, names_list: list, source_list: list, description_list: list):
         for index, name in enumerate(names_list):
             file_path = f"bestiary/{name}.md"
             content =(
@@ -39,11 +50,11 @@ class CardGenerator:
             f"{description_list[index]}\n"
             )
             print(content)
-            Utils.write_content_to_file(file_path, content)
+            self._create_file(file_path, content)
 
 
-    def generate_bestiary_sets(self, sets_list: list, sets_bonus_list: list, sets_bonus_value_list: list):
-        index = 0
+class BestiarySetsCardGenerator(CardGenerator):
+    def generate(self, sets_list: list, sets_bonus_list: list, sets_bonus_value_list: list):
         for index, set_name in enumerate(sets_list):
             file_path = f"bestiary_sets/{set_name}.md"
             content =(
@@ -54,12 +65,11 @@ class CardGenerator:
             f"{set_name}в отряде:{sets_bonus_list[index]}+{sets_bonus_value_list[index]}\n"
             )
 
-            Utils.write_content_to_file(file_path, content)
+            self._create_file(file_path, content)
 
 
-    def generate_glyph_cards(self, glyph_list: list, glyph_description_list: list, glyph_stats_list: list, glyph_stat_values_list: list):
-        index = 0
-
+class GlyphsCardGenerator(CardGenerator):
+    def generate(self, glyph_list: list, glyph_description_list: list, glyph_stats_list: list, glyph_stat_values_list: list):
         for index, bestiary_part_name in enumerate(glyph_list):
             file_path = f"bestiary_parts/{bestiary_part_name}.md"
             content =(
@@ -72,12 +82,11 @@ class CardGenerator:
             f"{glyph_description_list[index]}\n"
             )
 
-            Utils.write_content_to_file(file_path, content)
+            self._create_file(file_path, content)
 
 
-    def generate_bestiary_part_cards(self, bestiary_part_names_list: list, bestiary_part_descriptions_list: list):
-        index = 0
-
+class BestiaryPartCardGenerator(CardGenerator):
+    def generate(self, bestiary_part_names_list: list, bestiary_part_descriptions_list: list):
         for index, bestiary_part_name in enumerate(bestiary_part_names_list):
             file_path = f"bestiary_parts/{bestiary_part_name}.md"
             content =(
@@ -88,12 +97,11 @@ class CardGenerator:
             f"{bestiary_part_descriptions_list[index]}\n"
             )
 
-            Utils.write_content_to_file(file_path, content)
+            self._create_file(file_path, content)
 
 
-    def generate_bestiary_shine_cards(self, bestiary_shine_names_list: list, bestiary_shine_descriptions_list: list):
-        index = 0
-
+class BestiaryShineCardGenerator(CardGenerator):
+    def generate(self, bestiary_shine_names_list: list, bestiary_shine_descriptions_list: list):
         for index, bestiary_shine_name in enumerate(bestiary_shine_names_list):
             file_path = f"bestiary_shine/{bestiary_shine_name}.md"
             content =( 
@@ -104,4 +112,4 @@ class CardGenerator:
             f"{bestiary_shine_descriptions_list[index]}\n"
             )
 
-            Utils.write_content_to_file(file_path, content)
+            self._create_file(file_path, content)

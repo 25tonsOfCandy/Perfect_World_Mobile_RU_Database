@@ -1,42 +1,46 @@
 """
 """
 import os
-from CardGenerator import CardGenerator
+from CardGenerator import BestiaryCardGenerator, BestiarySetsCardGenerator, BestiaryPartCardGenerator, BestiaryShineCardGenerator, GlyphsCardGenerator
 from Utils import Utils
 from config import DIRECTORIES, FILES, TRIGGERS
 
-generator = CardGenerator()
+bestiary_generator = BestiaryCardGenerator()
+bestiarypart_generator = BestiaryPartCardGenerator()
+bestiaryset_generator = BestiarySetsCardGenerator()
+bestiaryshine_generator = BestiaryShineCardGenerator()
+glyph_generator = GlyphsCardGenerator()
 utils = Utils()
 
 
 def process_bestiary():
     raw_data = utils.get_data_from_xlsx_file(filename = FILES['BESTIARY'], column_list = [3, 4, 5])
     names_list, description_list, source_list = raw_data
-    generator.generate_bestiary_cards(names_list, source_list, description_list)
+    bestiary_generator.generate(names_list, source_list, description_list)
 
 
 def process_bestiary_sets():
     raw_data = utils.get_data_from_xlsx_file(filename = FILES['BESTIARY_SETS'], column_list = [1, 2, 3])
     sets_list, sets_bonus_list, sets_bonus_value_list = raw_data
-    generator.generate_bestiary_sets(sets_list, sets_bonus_list, sets_bonus_value_list)
+    bestiaryset_generator.generate(sets_list, sets_bonus_list, sets_bonus_value_list)
 
 
 def process_glyphs():
     raw_data = utils.get_data_from_xlsx_file(filename = FILES['GLYPHS'], column_list = [2, 3, 4, 5])
     glyph_names_list, glyph_description_list, glyph_stats_list, glyph_stat_values_list = raw_data
-    generator.generate_glyph_cards(glyph_names_list, glyph_description_list, glyph_stats_list, glyph_stat_values_list)
+    glyph_generator.generate(glyph_names_list, glyph_description_list, glyph_stats_list, glyph_stat_values_list)
 
 
 def process_bestiary_parts():
     raw_data = utils.get_data_from_xlsx_file(filename=FILES['BESTIARY_PARTS'], column_list=[2, 3])
     bestiary_part_names_list, bestiary_part_descriptions_list = raw_data
-    generator.generate_bestiary_part_cards(bestiary_part_names_list, bestiary_part_descriptions_list)
+    bestiarypart_generator.generate(bestiary_part_names_list, bestiary_part_descriptions_list)
 
 
 def process_bestiary_shines():
     raw_data = utils.get_data_from_xlsx_file(filename=FILES['BESTIARY_SHINE'], column_list=[2, 3])
     bestiary_shine_names_list, bestiary_shine_descriptions_list = raw_data
-    generator.generate_bestiary_shine_cards(bestiary_shine_names_list, bestiary_shine_descriptions_list)
+    bestiaryshine_generator.generate(bestiary_shine_names_list, bestiary_shine_descriptions_list)
 
 
 def check_exists_all_important_directories():

@@ -1,102 +1,107 @@
+from Utils import Utils
+Utils = Utils()
+
 class CardGenerator:
     def __init__(self):
         # base
-        self.property_start_end_str = "---"
+        self.start_end_str = "---"
         
         # markdown property strings 
-        self.property_stats_str = "stats: "
-        self.property_tier_str = "tier: "
-        self.property_source_str = "source: "
-        self.property_bonus_stat_str = "bonus: "
-        self.property_value_str = "value: "
-        self.property_item_type_str = "itemtype: "
-        self.property_stat_str = "stat: "
+        self.stats_str = "stats: "
+        self.tier_str = "tier: "
+        self.source_str = "source: "
+        self.bonus_stat_str = "bonus: "
+        self.value_str = "value: "
+        self.item_type_str = "itemtype: "
+        self.stat_str = "stat: "
         
         # image placeholders
-        self.bestiary_placeholder_str = "![[Temp/Placeholder_Bestiary.png]]"
-        self.glyph_placeholder_str = "![[Temp/Placeholder_Glyph.png]]"
-        self.bestiary_part_placeholder_str = "![[Temp/Placeholder_Bestiary_Part.png]]"
-        self.bestiary_shine_placeholder_str = "![[Temp/Placeholder_Bestiary_Shine.png]]"
+        self.placeholder_bestiary = "![[Temp/Placeholder_Bestiary.png]]"
+        self.placeholder_glyph = "![[Temp/Placeholder_Glyph.png]]"
+        self.placeholder_bestiary_part = "![[Temp/Placeholder_Bestiary_Part.png]]"
+        self.placeholder_bestiary_shine = "![[Temp/Placeholder_Bestiary_Shine.png]]"
         
         # string placeholders
-        self.placeholder_skill_name_str = "SkillNamePlaceholder"
+        self.placeholder_skill_name = "SkillNamePlaceholder"
 
     
     def generate_bestiary_cards(self, names_list: list, source_list: list, description_list: list):
-        element_number = 0
-
-        for name in names_list:
-            with open('bestiary/' + str(name) + '.md', 'w', encoding='UTF-8') as bestiary_file:
-                bestiary_file.write(self.property_start_end_str + '\n')
-                bestiary_file.write(self.property_stats_str + '\n')
-                bestiary_file.write(self.property_tier_str + '\n')
-                if source_list[element_number]  != None:
-                    bestiary_file.write(self.property_source_str + str(source_list[element_number]) + '\n')
-                else: 
-                    bestiary_file.write(self.property_source_str + "Информация отсутствует" + '\n')
-                bestiary_file.write(self.property_start_end_str + '\n')
-                bestiary_file.write(self.bestiary_placeholder_str + '\n')
-                bestiary_file.write(self.placeholder_skill_name_str + '\n')
-                bestiary_file.write(description_list[element_number] + '\n')
-                
-                element_number += 1
+        index = 0
+        for index, name in enumerate(names_list):
+            file_path = f"bestiary/{name}.md"
+            content =(
+            f"{self.start_end_str}\n"
+            f"{self.stats_str}\n"
+            f"{self.tier_str}\n"
+            f"{self.source_str}{source_list[index] if source_list[index] is not None else 'Информация отсутствует'}\n"
+            f"{self.start_end_str}\n"
+            f"{self.placeholder_bestiary}\n"
+            f"{description_list[index]}\n"
+            )
+            print(content)
+            Utils.write_content_to_file(file_path, content)
 
 
     def generate_bestiary_sets(self, sets_list: list, sets_bonus_list: list, sets_bonus_value_list: list):
-        element_number = 0
-        
-        for set_name in sets_list:
-            with open('bestiary_sets/' + str(set_name) + '.md', 'w', encoding='UTF-8') as bestiary_set_file:
-                bestiary_set_file.write(self.property_start_end_str + '\n')
-                bestiary_set_file.write(self.property_bonus_stat_str + sets_bonus_list[element_number] + '\n')
-                bestiary_set_file.write(self.property_value_str + str(sets_bonus_value_list[element_number]) + '\n')
-                bestiary_set_file.write(self.property_start_end_str + '\n')
-                bestiary_set_file.write(set_name + 'в отряде:' + sets_bonus_list[element_number] + '+' + str(sets_bonus_value_list[element_number]) + '\n')
+        index = 0
+        for index, set_name in enumerate(sets_list):
+            file_path = f"bestiary_sets/{set_name}.md"
+            content =(
+            f"{self.start_end_str}\n"
+            f"{self.bonus_stat_str}{sets_bonus_list[index]}\n"
+            f"{self.value_str}{sets_bonus_value_list[index]}\n"
+            f"{self.start_end_str}\n"
+            f"{set_name}в отряде:{sets_bonus_list[index]}+{sets_bonus_value_list[index]}\n"
+            )
 
-                element_number += 1
+            Utils.write_content_to_file(file_path, content)
 
-    
+
     def generate_glyph_cards(self, glyph_list: list, glyph_description_list: list, glyph_stats_list: list, glyph_stat_values_list: list):
-        element_number = 0
-        
-        for glyph_name in glyph_list:
-            with open('glyphs/' + str(glyph_name) + '.md', 'w', encoding='UTF-8') as glyph_file:
-                glyph_file.write(self.property_start_end_str + '\n')
-                glyph_file.write(self.property_item_type_str + 'Глиф' + '\n')
-                glyph_file.write(self.property_stat_str + str(glyph_stats_list[element_number]) + '\n')
-                glyph_file.write(self.property_value_str + str(glyph_stat_values_list[element_number]) + '\n')
-                glyph_file.write(self.property_start_end_str + '\n')
-                glyph_file.write(self.glyph_placeholder_str + '\n')
-                glyph_file.write(str(glyph_description_list[element_number]) + '\n')
+        index = 0
 
-                element_number += 1
+        for index, bestiary_part_name in enumerate(glyph_list):
+            file_path = f"bestiary_parts/{bestiary_part_name}.md"
+            content =(
+            f"{self.start_end_str}\n"
+            f"{self.item_type_str}Глиф\n"
+            f"{self.stat_str}{glyph_stats_list[index]}\n"
+            f"{self.value_str}{glyph_stat_values_list[index]}\n"
+            f"{self.start_end_str}\n"
+            f"{self.placeholder_glyph}\n"
+            f"{glyph_description_list[index]}\n"
+            )
+
+            Utils.write_content_to_file(file_path, content)
+
 
     def generate_bestiary_part_cards(self, bestiary_part_names_list: list, bestiary_part_descriptions_list: list):
-        element_number = 0
-    
-        for bestiary_part_name in bestiary_part_names_list:
-            with open('bestiary_parts/' + str(bestiary_part_name) + '.md', 'w', encoding='UTF-8') as bestiary_part_file:
-                bestiary_part_file.write(self.property_start_end_str + '\n')
-                bestiary_part_file.write(self.property_item_type_str + 'Часть духа' + '\n')
-                bestiary_part_file.write(self.property_start_end_str + '\n')
-                bestiary_part_file.write(self.bestiary_part_placeholder_str + '\n')
-                bestiary_part_file.write(str(bestiary_part_descriptions_list[element_number]) + '\n')
-                print(bestiary_part_name)
-                element_number += 1
+        index = 0
 
-    
+        for index, bestiary_part_name in enumerate(bestiary_part_names_list):
+            file_path = f"bestiary_parts/{bestiary_part_name}.md"
+            content =(
+            f"{self.start_end_str}\n"
+            f"{self.item_type_str}Часть духа\n"
+            f"{self.start_end_str}\n"
+            f"{self.placeholder_bestiary_part}\n"
+            f"{bestiary_part_descriptions_list[index]}\n"
+            )
+
+            Utils.write_content_to_file(file_path, content)
+
+
     def generate_bestiary_shine_cards(self, bestiary_shine_names_list: list, bestiary_shine_descriptions_list: list):
         index = 0
 
         for index, bestiary_shine_name in enumerate(bestiary_shine_names_list):
             file_path = f"bestiary_shine/{bestiary_shine_name}.md"
             content =( 
-            f"{self.property_start_end_str}\n"
-            f"{self.property_item_type_str}Дух Блеск\n"
-            f"{self.property_start_end_str}\n"
-            f"{self.bestiary_shine_placeholder_str}\n"
+            f"{self.start_end_str}\n"
+            f"{self.item_type_str}Дух Блеск\n"
+            f"{self.start_end_str}\n"
+            f"{self.placeholder_bestiary_shine}\n"
             f"{bestiary_shine_descriptions_list[index]}\n"
             )
 
-            with open(file_path, 'w', encoding="UTF-8") as bestiary_shine_file:
-                bestiary_shine_file.write(content)
+            Utils.write_content_to_file(file_path, content)

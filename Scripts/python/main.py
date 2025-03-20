@@ -16,37 +16,37 @@ xlsx_data_extractor = XLSXDataExtractor()
 
 
 def process_bestiary():
-    raw_data = xlsx_data_extractor.get_columns_data(filename = FILES['BESTIARY'], column_list = COLUMNS['BESTIARY'])
+    raw_data = xlsx_data_extractor.extract_data(filename = FILES['BESTIARY'], column_list = COLUMNS['BESTIARY'])
     names_list, description_list, source_list = raw_data
     bestiary_generator.generate(names_list, source_list, description_list)
 
 
 def process_bestiary_sets():
-    raw_data = xlsx_data_extractor.get_columns_data(filename = FILES['BESTIARY_SETS'], column_list = COLUMNS['BESTIARY_SETS'])
+    raw_data = xlsx_data_extractor.extract_data(filename = FILES['BESTIARY_SETS'], column_list = COLUMNS['BESTIARY_SETS'])
     names_list, bonus_list, bonus_value_list = raw_data
     bestiaryset_generator.generate(names_list, bonus_list, bonus_value_list)
 
 
 def process_glyphs():
-    raw_data = xlsx_data_extractor.get_columns_data(filename = FILES['GLYPHS'], column_list = COLUMNS["GLYPHS"])
+    raw_data = xlsx_data_extractor.extract_data(filename = FILES['GLYPHS'], column_list = COLUMNS["GLYPHS"])
     names_list, description_list, stats_list, stat_values_list = raw_data
     glyph_generator.generate(names_list, description_list, stats_list, stat_values_list)
 
 
 def process_bestiary_parts():
-    raw_data = xlsx_data_extractor.get_columns_data(filename=FILES['BESTIARY_PARTS'], column_list=COLUMNS['BESTIARY_PARTS'])
+    raw_data = xlsx_data_extractor.extract_data(filename=FILES['BESTIARY_PARTS'], column_list=COLUMNS['BESTIARY_PARTS'])
     names_list, descriptions_list = raw_data
     bestiarypart_generator.generate(names_list, descriptions_list)
 
 
 def process_bestiary_shines():
-    raw_data = xlsx_data_extractor.get_columns_data(filename=FILES['BESTIARY_SHINE'], column_list=COLUMNS['BESTIARY_SHINES'])
+    raw_data = xlsx_data_extractor.extract_data(filename=FILES['BESTIARY_SHINE'], column_list=COLUMNS['BESTIARY_SHINES'])
     names_list, descriptions_list = raw_data
     bestiaryshine_generator.generate(names_list, descriptions_list)
 
 
 def process_chimera_techniques():
-    raw_data = xlsx_data_extractor.get_columns_data(filename=FILES['CHIMERA_TECHNIQUES'], column_list=COLUMNS['CHIMERA_TECHNIQUES'])
+    raw_data = xlsx_data_extractor.extract_data(filename=FILES['CHIMERA_TECHNIQUES'], column_list=COLUMNS['CHIMERA_TECHNIQUES'])
     names_list, description_list, itemtypes_list= raw_data
     chimera_technique_generator.generate(names_list, description_list, itemtypes_list)
 

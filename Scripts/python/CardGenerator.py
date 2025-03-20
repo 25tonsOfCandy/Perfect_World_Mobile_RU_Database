@@ -30,7 +30,6 @@ class CardGenerator(ABC):
     def _create_file(self, file_path, content):
         self.utils.write_content_to_file(file_path, content)
 
-
     @abstractmethod
     def generate(self, *args):
         pass

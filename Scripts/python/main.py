@@ -3,6 +3,7 @@
 import os
 from CardGenerator import BestiaryCardGenerator, BestiarySetsCardGenerator, BestiaryPartCardGenerator
 from CardGenerator import ChimeraTechniquesCardGenerator, BestiaryShineCardGenerator, GlyphsCardGenerator
+from CardGenerator import ChimeraCardGenerator
 from XLSXDataExtractor import XLSXDataExtractor
 from config import DIRECTORIES, FILES, TRIGGERS, COLUMNS
 
@@ -12,6 +13,7 @@ bestiaryset_generator = BestiarySetsCardGenerator()
 bestiaryshine_generator = BestiaryShineCardGenerator()
 glyph_generator = GlyphsCardGenerator()
 chimera_technique_generator = ChimeraTechniquesCardGenerator()
+chimera_generator = ChimeraCardGenerator()
 xlsx_data_extractor = XLSXDataExtractor()
 
 
@@ -47,8 +49,14 @@ def process_bestiary_shines():
 
 def process_chimera_techniques():
     raw_data = xlsx_data_extractor.extract_data(filename=FILES['CHIMERA_TECHNIQUES'], column_list=COLUMNS['CHIMERA_TECHNIQUES'])
-    names_list, description_list, itemtypes_list= raw_data
+    names_list, description_list, itemtypes_list = raw_data
     chimera_technique_generator.generate(names_list, description_list, itemtypes_list)
+
+
+def process_chimeras():
+    raw_data = xlsx_data_extractor.extract_data(filename=FILES['CHIMERAS'], column_list=COLUMNS["CHIMERAS"])
+    names_list, descriptions_list, spectypes_list = raw_data
+    chimera_generator.generate(names_list, descriptions_list, spectypes_list)
 
 
 def ensure_directories_exist():
@@ -77,6 +85,9 @@ def main():
 
     if TRIGGERS["CHIMERA_TECHNIQUES"]:
         process_chimera_techniques()
+
+    if TRIGGERS["CHIMERAS"]:
+        process_chimeras()
         
     return 0
 

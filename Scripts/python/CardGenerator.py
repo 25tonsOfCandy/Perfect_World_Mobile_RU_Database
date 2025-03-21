@@ -100,3 +100,46 @@ class ChimeraTechniquesCardGenerator(CardGenerator):
             f"{descriptions_list[index]}\n"
             )
             self._create_file(file_path, content)
+
+
+class ChimeraCardGenerator(CardGenerator):
+    def generate(self, names_list: list, descriptions_list: list, spectypes_list: list):
+        for index, chimera_name in enumerate(names_list):
+            file_path = f"chimeras/{chimera_name}.md"
+            content =(
+            f"{START_END_STR}\n"
+            f"{SPEC_TYPE_STR}{spectypes_list[index]}\n"
+            f"{SOURCE_STR}Где-то" # TODO: fixme
+            f"{START_END_STR}\n"
+            f"{IMAGE_PLACEHOLDERS["CHIMERA"]}\n"
+            f"{descriptions_list[index]}\n"
+            )
+            self._create_file(file_path, content)
+
+
+class ChimeraEggCardGenerator(CardGenerator):
+    def generate(self, names_list: list, descriptions_list: list):
+        for index, chimera_egg_name in enumerate(names_list):
+            file_path = f"chimera_eggs/{chimera_egg_name}.md"
+            content =(
+            f"{START_END_STR}\n"
+            f"{ITEM_TYPE_STR}Яйцо Химеры\n"
+            f"{START_END_STR}\n"
+            f"{IMAGE_PLACEHOLDERS["CHIMERA_EGG"]}\n"
+            f"{descriptions_list[index]}\n"
+            )
+            self._create_file(file_path, content)
+
+
+class ChimeraItemCardGenerator(CardGenerator):
+    def generate(self, names_list: list, descriptions_list: list):
+        for index, chimera_item_name in enumerate(names_list):
+            file_path = f"chimera_items/{chimera_item_name}.md"
+            content =( 
+            f"{START_END_STR}\n"
+            f"{ITEM_TYPE_STR}Химера\n"
+            f"{START_END_STR}\n"
+            f"{IMAGE_PLACEHOLDERS["CHIMERA_ITEM"]}\n"
+            f"{descriptions_list[index]}\n"
+            )
+            self._create_file(file_path, content)

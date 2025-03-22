@@ -20,6 +20,8 @@ IMAGE_PLACEHOLDERS = {
     "CHIMERA_TECHNIQUES": "![[Temp/Placeholder_Chimera_Techniques.png]]",
     "CHIMERAS": "![[Temp/Placeholder_Chimera.png]]",
     "CHIMERA_EGG": "![[Temp/Placeholder_Chimera_Egg.png]]",
+    "CHIMERA_ITEM": "![[Temp/Placeholder_Chimera_Item.png]]",
+    "FOR_CHIMERA": "![[Temp/Placeholder_For_Chimera.png]]",
 }
 
 STR_PLACEHOLDERS = {

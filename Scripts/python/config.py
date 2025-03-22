@@ -6,7 +6,9 @@ TRIGGERS = {
     "BESTIARY_SHINE": False,
     "CHIMERA_TECHNIQUES": True,
     "CHIMERAS": True,
-    "CHIMERA_EGGS": True
+    "CHIMERA_EGGS": True,
+    "CHIMERA_ITEMS": True,
+    "FOR_CHIMERAS": True,
 }
 
 DIRECTORIES = ['results',
@@ -17,7 +19,9 @@ DIRECTORIES = ['results',
             'results/bestiary_shine',
             'results/chimera_techniques',
             'results/chimeras',
-            'results/chimera_eggs'] 
+            'results/chimera_eggs',
+            'results/chimera_items',
+            'results/for_chimeras'] 
 
 FILES = {
     "BESTIARY": 'SourceTables/Bestiary_Skills_Source_RUCHNames.xlsx',
@@ -27,7 +31,9 @@ FILES = {
     "BESTIARY_SHINE": 'SourceTables/BestiaryShine.xlsx',
     "CHIMERA_TECHNIQUES": "SourceTables/ChimeraTechniques.xlsx",
     "CHIMERAS": "SourceTables/Chimeras.xlsx",
-    "CHIMERA_EGGS": "SourceTables/ChimeraEggs.xlsx"
+    "CHIMERA_EGGS": "SourceTables/ChimeraEggs.xlsx",
+    "CHIMERA_ITEMS": "SourceTables/ChimeraItems.xlsx",
+    "FOR_CHIMERAS": "SourceTables/ForChimeras.xlsx",
 }
 
 COLUMNS = {
@@ -37,6 +43,8 @@ COLUMNS = {
     "BESTIARY_PARTS": [2, 3],
     "BESTIARY_SHINE": [2, 3],
     "CHIMERA_TECHNIQUES": [2, 3, 4],
-    "CHIMERAS": [2, 4, 3],
-    "CHIMERA_EGGS": [2, 3]
+    "CHIMERAS": [2, 4, 3, 5],
+    "CHIMERA_EGGS": [2, 3],
+    "CHIMERA_ITEMS": [2, 4],
+    "FOR_CHIMERAS": [2, 3],
 }

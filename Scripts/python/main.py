@@ -3,7 +3,8 @@
 import os
 from CardGenerator import BestiaryCardGenerator, BestiarySetsCardGenerator, BestiaryPartCardGenerator
 from CardGenerator import ChimeraTechniquesCardGenerator, BestiaryShineCardGenerator, GlyphsCardGenerator
-from CardGenerator import ChimeraCardGenerator
+from CardGenerator import ChimeraCardGenerator, ChimeraEggCardGenerator, ChimeraItemCardGenerator
+from CardGenerator import ForChimeraCardGenerator
 from XLSXDataExtractor import XLSXDataExtractor
 from config import DIRECTORIES, FILES, TRIGGERS, COLUMNS
 
@@ -14,6 +15,9 @@ bestiaryshine_generator = BestiaryShineCardGenerator()
 glyph_generator = GlyphsCardGenerator()
 chimera_technique_generator = ChimeraTechniquesCardGenerator()
 chimera_generator = ChimeraCardGenerator()
+chimera_egg_generator = ChimeraEggCardGenerator()
+chimera_item_generator = ChimeraItemCardGenerator()
+for_chimera_generator = ForChimeraCardGenerator()
 xlsx_data_extractor = XLSXDataExtractor()
 
 
@@ -55,8 +59,27 @@ def process_chimera_techniques():
 
 def process_chimeras():
     raw_data = xlsx_data_extractor.extract_data(filename=FILES['CHIMERAS'], column_list=COLUMNS["CHIMERAS"])
-    names_list, descriptions_list, spectypes_list = raw_data
-    chimera_generator.generate(names_list, descriptions_list, spectypes_list)
+    names_list, descriptions_list, spectypes_list, source_list = raw_data
+    chimera_generator.generate(names_list, descriptions_list, spectypes_list, source_list)
+
+
+def process_chimera_eggs():
+    raw_data = xlsx_data_extractor.extract_data(filename=FILES['CHIMERA_EGGS'], column_list=COLUMNS['CHIMERA_EGGS'])
+    names_list, descriptions_list = raw_data
+    chimera_egg_generator.generate(names_list, descriptions_list)
+
+
+def process_chimera_items():
+    raw_data = xlsx_data_extractor.extract_data(filename=FILES['CHIMERA_ITEMS'], column_list=COLUMNS["CHIMERA_ITEMS"])
+    names_list, descriptions_list = raw_data
+    chimera_item_generator.generate(names_list, descriptions_list) # *raw_data?
+
+
+def process_for_chimeras():
+    raw_data = xlsx_data_extractor.extract_data(filename=FILES['FOR_CHIMERAS'], column_list=COLUMNS["FOR_CHIMERAS"])
+    names_list, descriptions_list = raw_data
+    for_chimera_generator.generate(names_list, descriptions_list)
+    
 
 
 def ensure_directories_exist():
@@ -88,7 +111,16 @@ def main():
 
     if TRIGGERS["CHIMERAS"]:
         process_chimeras()
-        
+
+    if TRIGGERS["CHIMERA_EGGS"]:
+        process_chimera_eggs()
+
+    if TRIGGERS["CHIMERA_ITEMS"]:
+        process_chimera_items()
+
+    if TRIGGERS['FOR_CHIMERAS']:
+        process_for_chimeras()
+
     return 0
 
 

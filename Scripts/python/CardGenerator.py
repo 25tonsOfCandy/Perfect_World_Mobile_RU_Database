@@ -109,7 +109,7 @@ class ChimeraCardGenerator(CardGenerator):
             content =(
             f"{START_END_STR}\n"
             f"{SPEC_TYPE_STR}{spectypes_list[index]}\n"
-            f"{SOURCE_STR}{source_list[index]}"
+            f"{SOURCE_STR}{source_list[index]}\n"
             f"{START_END_STR}\n"
             f"{IMAGE_PLACEHOLDERS['CHIMERA']}\n"
             f"{descriptions_list[index]}\n"

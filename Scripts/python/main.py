@@ -4,7 +4,8 @@ import os
 from CardGenerator import BestiaryCardGenerator, BestiarySetsCardGenerator, BestiaryPartCardGenerator
 from CardGenerator import ChimeraTechniquesCardGenerator, BestiaryShineCardGenerator, GlyphsCardGenerator
 from CardGenerator import ChimeraCardGenerator, ChimeraEggCardGenerator, ChimeraItemCardGenerator
-from CardGenerator import ForChimeraCardGenerator, EidolonCardGenerator
+from CardGenerator import ForChimeraCardGenerator, EidolonCardGenerator, EidolonItemCardGenerator
+from CardGenerator import EidolonDiaryCardGenerator
 from XLSXDataExtractor import XLSXDataExtractor
 from config import DIRECTORIES, FILES, TRIGGERS, COLUMNS
 
@@ -19,6 +20,8 @@ chimera_egg_generator = ChimeraEggCardGenerator()
 chimera_item_generator = ChimeraItemCardGenerator()
 for_chimera_generator = ForChimeraCardGenerator()
 eidolon_generator = EidolonCardGenerator()
+eidolon_item_generator = EidolonItemCardGenerator()
+eidolon_diary_generator = EidolonDiaryCardGenerator()
 xlsx_data_extractor = XLSXDataExtractor()
 
 
@@ -88,6 +91,17 @@ def process_eidolons():
     eidolon_generator.generate(names_list, eidolontypes_list, raritys_list, evolvecounts_list)
 
 
+def process_eidolonitems():
+    raw_data = xlsx_data_extractor.extract_data(filename=FILES['EIDOLON_ITEMS'], column_list=COLUMNS["EIDOLON_ITEMS"])
+    names_list, descriptions_list, itemtype_list = raw_data
+    eidolon_item_generator.generate(names_list, descriptions_list, itemtype_list)
+
+def process_eidolondiarys():
+    raw_data = xlsx_data_extractor.extract_data(filename=FILES['EIDOLON_DIARYS'], column_list=COLUMNS["EIDOLON_DIARYS"])
+    names_list, descriptions_list, itemtype_list = raw_data
+    eidolon_diary_generator.generate(names_list, descriptions_list, itemtype_list)
+
+
 def ensure_directories_exist():
     for directory in DIRECTORIES:
         if not os.path.exists(directory):
@@ -130,6 +144,12 @@ def main():
     if TRIGGERS['EIDOLONS']:
         process_eidolons()
 
+    if TRIGGERS["EIDOLON_ITEMS"]:
+        process_eidolonitems()
+
+    if TRIGGERS["EIDOLON_DIARYS"]:
+        process_eidolondiarys()
+    
     return 0
 
 

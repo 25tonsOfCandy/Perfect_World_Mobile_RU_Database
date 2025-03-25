@@ -189,3 +189,17 @@ class EidolonItemCardGenerator(CardGenerator):
             f"{descriptions_list[index]}\n"
             )
             self._create_file(file_path, content)
+
+
+class EidolonDiaryCardGenerator(CardGenerator):
+    def generate(self, names_list: list, descriptions_list: list, itemtypes_list: list):
+        for index, eidolon_diary_name in enumerate(names_list):
+            file_path = f"results/eidolon_diary/{eidolon_diary_name}.md"
+            content =( 
+            f"{START_END_STR}\n"
+            f"{ITEM_TYPE_STR}{itemtypes_list[index]}\n"
+            f"{START_END_STR}\n"
+            f"{IMAGE_PLACEHOLDERS['EIDOLON_DIARY']}\n"
+            f"{descriptions_list[index]}\n"
+            )
+            self._create_file(file_path, content)

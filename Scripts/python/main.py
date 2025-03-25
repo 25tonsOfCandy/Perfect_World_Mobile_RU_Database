@@ -4,7 +4,7 @@ import os
 from CardGenerator import BestiaryCardGenerator, BestiarySetsCardGenerator, BestiaryPartCardGenerator
 from CardGenerator import ChimeraTechniquesCardGenerator, BestiaryShineCardGenerator, GlyphsCardGenerator
 from CardGenerator import ChimeraCardGenerator, ChimeraEggCardGenerator, ChimeraItemCardGenerator
-from CardGenerator import ForChimeraCardGenerator
+from CardGenerator import ForChimeraCardGenerator, EidolonCardGenerator
 from XLSXDataExtractor import XLSXDataExtractor
 from config import DIRECTORIES, FILES, TRIGGERS, COLUMNS
 
@@ -18,6 +18,7 @@ chimera_generator = ChimeraCardGenerator()
 chimera_egg_generator = ChimeraEggCardGenerator()
 chimera_item_generator = ChimeraItemCardGenerator()
 for_chimera_generator = ForChimeraCardGenerator()
+eidolon_generator = EidolonCardGenerator()
 xlsx_data_extractor = XLSXDataExtractor()
 
 
@@ -79,7 +80,12 @@ def process_for_chimeras():
     raw_data = xlsx_data_extractor.extract_data(filename=FILES['FOR_CHIMERAS'], column_list=COLUMNS["FOR_CHIMERAS"])
     names_list, descriptions_list = raw_data
     for_chimera_generator.generate(names_list, descriptions_list)
-    
+
+
+def process_eidolons():
+    raw_data = xlsx_data_extractor.extract_data(filename=FILES['EIDOLONS'], column_list=COLUMNS["EIDOLONS"])
+    names_list, eidolontypes_list, raritys_list, evolvecounts_list = raw_data
+    eidolon_generator.generate(names_list, eidolontypes_list, raritys_list, evolvecounts_list)
 
 
 def ensure_directories_exist():
@@ -120,6 +126,9 @@ def main():
 
     if TRIGGERS['FOR_CHIMERAS']:
         process_for_chimeras()
+
+    if TRIGGERS['EIDOLONS']:
+        process_eidolons()
 
     return 0
 

@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from FileWriter import FileWriter
 from cardgeneratorconfig import *
 
+# TODO: посмотреть можно ли переписать генерацию чтобы не делить на несколько классов
 
 class CardGenerator(ABC):
     def _create_file(self, file_path, content):
@@ -157,3 +158,19 @@ class ForChimeraCardGenerator(CardGenerator):
             f"{descriptions_list[index]}\n"
             )
             self._create_file(file_path, content)
+
+
+class EidolonCardGenerator(CardGenerator):
+    def generate(self, names_list: list, eidolontypes_list: list, raritys_list: list, evolvecounts_list: list):
+        for index, eidolon_name in enumerate(names_list):
+            file_path = f"results/eidolons/{eidolon_name}.md"
+            content =( 
+            f"{START_END_STR}\n"
+            f"{RARITY_STR}{raritys_list[index]}\n"
+            f"{EVOLVE_COUNT_STR}{evolvecounts_list[index]}\n"
+            f"{EIDOLON_TYPE_STR}{eidolontypes_list[index]}\n"
+            f"{START_END_STR}\n"
+            f"{IMAGE_PLACEHOLDERS['EIDOLON']}\n"
+            f"{STR_PLACEHOLDERS['DESCRIPTION']}\n"
+            f"{STR_PLACEHOLDERS['EIDOLON_SKILL_NAME']}\n"
+            )

@@ -10,6 +10,9 @@ VALUE_STR = "value: "
 ITEM_TYPE_STR = "itemtype: "
 STAT_STR = "stat: "
 SPEC_TYPE_STR = "spectype: "
+EIDOLON_TYPE_STR = "eidolontype: "
+RARITY_STR = "rarity: "
+EVOLVE_COUNT_STR = "evolvecount: "
 
 
 IMAGE_PLACEHOLDERS = {
@@ -22,8 +25,11 @@ IMAGE_PLACEHOLDERS = {
     "CHIMERA_EGG": "![[Temp/Placeholder_Chimera_Egg.png]]",
     "CHIMERA_ITEM": "![[Temp/Placeholder_Chimera_Item.png]]",
     "FOR_CHIMERA": "![[Temp/Placeholder_For_Chimera.png]]",
+    "EIDOLON": "![[Temp/Placeholder_Eidolon.png]]",
 }
 
 STR_PLACEHOLDERS = {
     "SKILL_NAME": "SkillNamePlaceholder",
+    "EIDOLON_SKILL_NAME": f"\nEidolonSkillNamePlaceholder\n\n2\n\n3",
+    "DESCRIPTION": "DescriptionPlaceholder",
 }

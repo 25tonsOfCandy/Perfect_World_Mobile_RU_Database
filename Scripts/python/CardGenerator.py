@@ -174,3 +174,18 @@ class EidolonCardGenerator(CardGenerator):
             f"{STR_PLACEHOLDERS['DESCRIPTION']}\n"
             f"{STR_PLACEHOLDERS['EIDOLON_SKILL_NAME']}\n"
             )
+            self._create_file(file_path, content)
+
+
+class EidolonItemCardGenerator(CardGenerator):
+    def generate(self, names_list: list, descriptions_list: list, itemtypes_list: list):
+        for index, eidolon_item_name in enumerate(names_list):
+            file_path = f"results/eidolon_items/{eidolon_item_name}.md"
+            content =( 
+            f"{START_END_STR}\n"
+            f"{ITEM_TYPE_STR}{itemtypes_list[index]}\n"
+            f"{START_END_STR}\n"
+            f"{IMAGE_PLACEHOLDERS['EIDOLON_ITEM']}\n"
+            f"{descriptions_list[index]}\n"
+            )
+            self._create_file(file_path, content)

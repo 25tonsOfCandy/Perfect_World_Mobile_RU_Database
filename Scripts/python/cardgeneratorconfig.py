@@ -26,6 +26,8 @@ IMAGE_PLACEHOLDERS = {
     "CHIMERA_ITEM": "![[Temp/Placeholder_Chimera_Item.png]]",
     "FOR_CHIMERA": "![[Temp/Placeholder_For_Chimera.png]]",
     "EIDOLON": "![[Temp/Placeholder_Eidolon.png]]",
+    "EIDOLON_ITEM": "![[Temp/Placeholder_Eidolon_Item.png]]",
+    "EIDOLON_DIARY": "![[Temp/Placeholder_Eidolon_Diary.png]]",
 }
 
 STR_PLACEHOLDERS = {

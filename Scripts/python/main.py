@@ -5,7 +5,7 @@ from CardGenerator import BestiaryCardGenerator, BestiarySetsCardGenerator, Best
 from CardGenerator import ChimeraTechniquesCardGenerator, BestiaryShineCardGenerator, GlyphsCardGenerator
 from CardGenerator import ChimeraCardGenerator, ChimeraEggCardGenerator, ChimeraItemCardGenerator
 from CardGenerator import ForChimeraCardGenerator, EidolonCardGenerator, EidolonItemCardGenerator
-from CardGenerator import EidolonDiaryCardGenerator
+from CardGenerator import EidolonDiaryCardGenerator, EidolonPillCardGenerator
 from XLSXDataExtractor import XLSXDataExtractor
 from config import DIRECTORIES, FILES, TRIGGERS, COLUMNS
 
@@ -22,6 +22,7 @@ for_chimera_generator = ForChimeraCardGenerator()
 eidolon_generator = EidolonCardGenerator()
 eidolon_item_generator = EidolonItemCardGenerator()
 eidolon_diary_generator = EidolonDiaryCardGenerator()
+eidolon_pills_generator = EidolonPillCardGenerator()
 xlsx_data_extractor = XLSXDataExtractor()
 
 
@@ -102,6 +103,12 @@ def process_eidolondiarys():
     eidolon_diary_generator.generate(names_list, descriptions_list, itemtype_list)
 
 
+def process_eidolonpills():
+    raw_data = xlsx_data_extractor.extract_data(filename=FILES['EIDOLON_PILLS'], column_list=COLUMNS["EIDOLON_PILLS"])
+    # names_list, descriptions_list, itemtype_list = raw_data
+    eidolon_pills_generator.generate(*raw_data)
+
+
 def ensure_directories_exist():
     for directory in DIRECTORIES:
         if not os.path.exists(directory):
@@ -150,6 +157,8 @@ def main():
     if TRIGGERS["EIDOLON_DIARYS"]:
         process_eidolondiarys()
     
+    if TRIGGERS["EIDOLON_PILLS"]:
+        process_eidolonpills()
     return 0
 
 

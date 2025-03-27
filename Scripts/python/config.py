@@ -9,9 +9,10 @@ TRIGGERS = {
     "CHIMERA_EGGS": False,
     "CHIMERA_ITEMS": False,
     "FOR_CHIMERAS": False,
-    "EIDOLONS": True,
-    "EIDOLON_ITEMS": True,
-    "EIDOLON_DIARYS": True,
+    "EIDOLONS": False,
+    "EIDOLON_ITEMS": False,
+    "EIDOLON_DIARYS": False,
+    "EIDOLON_PILLS": True,
 }
 
 DIRECTORIES = ['results',
@@ -27,7 +28,8 @@ DIRECTORIES = ['results',
             'results/for_chimeras',
             'results/eidolons',
             'results/eidolon_items',
-            'results/eidolon_diarys'] 
+            'results/eidolon_diarys'
+            'results/eidolon_pills'] 
 
 
 FILES = {
@@ -44,6 +46,7 @@ FILES = {
     "EIDOLONS": "SourceTables/Eidolons.xlsx",
     "EIDOLON_ITEMS": "SourceTables/EidolonItems.xlsx",
     "EIDOLON_DIARYS": "SourceTables/EidolonSkills.xlsx",
+    "EIDOLON_PILLS": "SourceTables/EidolonPills.xlsx"
 }
 
 COLUMNS = {
@@ -59,5 +62,6 @@ COLUMNS = {
     "FOR_CHIMERAS": [2, 3],
     "EIDOLONS": [3, 7, 4, 5],
     "EIDOLON_ITEMS": [2, 4, 3],
-    "EIDOLON_DIARYS": [2, 4, 3]
+    "EIDOLON_DIARYS": [2, 4, 3],
+    "EIDOLON_PILLS": [2, 4, 3]
 }

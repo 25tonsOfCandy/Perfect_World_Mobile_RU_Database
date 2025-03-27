@@ -20,7 +20,8 @@ class TestCardGenerator(unittest.TestCase):
             "results/for_chimeras",
             "results/eidolons",
             "results/eidolon_items",
-            "results/eidolon_diarys"
+            "results/eidolon_diarys",
+            "results/eidolon_pills"
         ]
         
         for dir_path in self.test_dirs:
@@ -159,6 +160,27 @@ class TestCardGenerator(unittest.TestCase):
         )
         mock_write.assert_called_once_with(expected_content)
 
+
+    @patch.object(FileWriter, 'write')
+    def test_eidolon_pill_card_generator(self, mock_write):
+        generator = EidolonPillCardGenerator()
+        names = ["Pill"]
+        descriptions = ["desc"]
+        itemtype = ["pill"]        
+        generator.generate(names, descriptions, itemtype)
+        
+        expected_content = (
+            f"{START_END_STR}\n"
+            f"{ITEM_TYPE_STR}pill\n"
+            f"{STAT_STR}\n"
+            f"{VALUE_STR}\n"
+            f"{START_END_STR}\n"
+            f"{IMAGE_PLACEHOLDERS['EIDOLON_PILL']}\n"
+            f"desc\n"
+        )
+        mock_write.assert_called_once_with(expected_content)
+
+
     def test_all_generators_have_generate_method(self):
         # Проверяем, что все конкретные генераторы реализуют метод generate
         generators = [
@@ -174,7 +196,8 @@ class TestCardGenerator(unittest.TestCase):
             ForChimeraCardGenerator,
             EidolonCardGenerator,
             EidolonItemCardGenerator,
-            EidolonDiaryCardGenerator
+            EidolonDiaryCardGenerator,
+            EidolonPillCardGenerator
         ]
         
         for generator_class in generators:

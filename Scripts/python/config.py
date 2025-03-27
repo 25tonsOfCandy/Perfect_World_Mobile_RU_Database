@@ -28,7 +28,7 @@ DIRECTORIES = ['results',
             'results/for_chimeras',
             'results/eidolons',
             'results/eidolon_items',
-            'results/eidolon_diarys'
+            'results/eidolon_diarys',
             'results/eidolon_pills'] 
 
 

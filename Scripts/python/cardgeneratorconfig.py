@@ -28,6 +28,7 @@ IMAGE_PLACEHOLDERS = {
     "EIDOLON": "![[Temp/Placeholder_Eidolon.png]]",
     "EIDOLON_ITEM": "![[Temp/Placeholder_Eidolon_Item.png]]",
     "EIDOLON_DIARY": "![[Temp/Placeholder_Eidolon_Diary.png]]",
+    "EIDOLON_PILL": "![[Temp/Placeholder_Eidolon_Pill.png]]",
 }
 
 STR_PLACEHOLDERS = {

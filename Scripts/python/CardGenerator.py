@@ -6,8 +6,7 @@ from cardgeneratorconfig import *
 
 class CardGenerator(ABC):
     def _create_file(self, file_path, content):
-        file_writer = FileWriter(file_path)
-        file_writer.write(content)
+        FileWriter(file_path).write(content)
 
     @abstractmethod
     def generate(self, *args):
@@ -200,6 +199,22 @@ class EidolonDiaryCardGenerator(CardGenerator):
             f"{ITEM_TYPE_STR}{itemtypes_list[index]}\n"
             f"{START_END_STR}\n"
             f"{IMAGE_PLACEHOLDERS['EIDOLON_DIARY']}\n"
+            f"{descriptions_list[index]}\n"
+            )
+            self._create_file(file_path, content)
+
+
+class EidolonPillCardGenerator(CardGenerator):
+    def generate(self, names_list: list, descriptions_list: list, itemtypes_list: list):
+        for index, eidolon_pill_name in enumerate(names_list):
+            file_path = f"results/eidolon_pills/{eidolon_pill_name}.md"
+            content =( 
+            f"{START_END_STR}\n"
+            f"{ITEM_TYPE_STR}{itemtypes_list[index]}\n"
+            f"{STAT_STR}\n"
+            f"{VALUE_STR}\n"
+            f"{START_END_STR}\n"
+            f"{IMAGE_PLACEHOLDERS['EIDOLON_PILL']}\n"
             f"{descriptions_list[index]}\n"
             )
             self._create_file(file_path, content)

@@ -47,7 +47,7 @@ class TestCardGenerator(unittest.TestCase):
         sources = ["Test Source"]
         descriptions = ["Test Description"]
         
-        generator.generate(names, sources, descriptions)
+        generator.generate(names, descriptions, sources)
         
         # Проверяем, что файл был создан с правильным содержимым
         expected_content = (

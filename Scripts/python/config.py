@@ -12,7 +12,10 @@ TRIGGERS = {
     "EIDOLONS": False,
     "EIDOLON_ITEMS": False,
     "EIDOLON_DIARYS": False,
-    "EIDOLON_PILLS": True,
+    "EIDOLON_PILLS": False,
+    "CODEXES": True,
+    "CODEX_ITEMS": True,
+    "FOLIOS": True,
 }
 
 DIRECTORIES = ['results',
@@ -29,7 +32,10 @@ DIRECTORIES = ['results',
             'results/eidolons',
             'results/eidolon_items',
             'results/eidolon_diarys',
-            'results/eidolon_pills'] 
+            'results/eidolon_pills',
+            "results/codexes",
+            "results/codex_items",
+            "results/folios"] 
 
 
 FILES = {
@@ -46,7 +52,10 @@ FILES = {
     "EIDOLONS": "SourceTables/Eidolons.xlsx",
     "EIDOLON_ITEMS": "SourceTables/EidolonItems.xlsx",
     "EIDOLON_DIARYS": "SourceTables/EidolonSkills.xlsx",
-    "EIDOLON_PILLS": "SourceTables/EidolonPills.xlsx"
+    "EIDOLON_PILLS": "SourceTables/EidolonPills.xlsx",
+    "CODEXES": "SourceTables/Codexes.xlsx",
+    "CODEX_ITEMS": "SourceTables/CodexItems.xlsx",
+    "FOLIOS": "SourceTables/Folios.xlsx",
 }
 
 COLUMNS = {
@@ -63,5 +72,8 @@ COLUMNS = {
     "EIDOLONS": [3, 7, 4, 5],
     "EIDOLON_ITEMS": [2, 4, 3],
     "EIDOLON_DIARYS": [2, 4, 3],
-    "EIDOLON_PILLS": [2, 4, 3]
+    "EIDOLON_PILLS": [2, 4, 3],
+    "CODEXES": [2, 5, 3, 4, 6, 7, 8],
+    "CODEX_ITEMS": [2, 4, 3],
+    "FOLIOS": [2, 5, 3, 4, 6],  
 }

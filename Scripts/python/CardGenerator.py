@@ -204,3 +204,49 @@ class EidolonPillCardGenerator(CardGenerator):
             f"{descriptions_list[index]}\n"
             )
             self._create_file(f"results/eidolon_pills/{eidolon_pill_name}.md", content)
+
+
+class CodexCardGenerator(CardGenerator): # name, desc, itemtype, codexlvl, stats_own, stats_on, codextype
+    def generate(self, names_list: list, descriptions_list: list, itemtypes_list: list, codexlvls_list: list, codex_stats_own_list: list, codex_stats_on_list: list, codextypes_list: list):
+        for index, codex_name in enumerate(names_list):
+            content =( 
+            f"{START_END_STR}\n"
+            f"{ITEM_TYPE_STR}{itemtypes_list[index]}\n"
+            f"{CODEX_LVL_STR}{codexlvls_list[index]}\n"
+            f"{STATS_OWN_STR}{codex_stats_own_list[index]}\n"
+            f"{STATS_ON_STR}{codex_stats_on_list[index]}\n"
+            f"{CODEX_TYPE_STR}{codextypes_list[index]}\n"
+            f"{START_END_STR}\n"
+            f"{IMAGE_PLACEHOLDERS['CODEX']}\n"
+            f"{str(descriptions_list[index])}\n"
+            )
+            self._create_file(f"results/codexes/{codex_name}.md", content)
+
+
+class CodexItemCardGenerator(CardGenerator):
+    def generate(self, names_list: list, descriptions_list: list, item_types_list: list):
+        for index, codex_item_name in enumerate(names_list):
+            content =( 
+            f"{START_END_STR}\n"
+            f"{ITEM_TYPE_STR}item_types_list[index]\n"
+            f"{START_END_STR}\n"
+            f"{IMAGE_PLACEHOLDERS['CODEX_ITEM']}\n"
+            f"{str(descriptions_list[index])}\n"
+            )
+            self._create_file(f"results/codex_items/{codex_item_name}.md", content)
+
+
+class FolioCardGenerator(CardGenerator): # name, description, type, codex_needed, stats
+    def generate(self, names_list: list, descriptions_list: list, itemtypes_list: list, codex_needed_list: list, stats_list: list):
+        for index, folio_name in enumerate(names_list):
+            content =( 
+            f"{START_END_STR}\n"
+            f"{ITEM_TYPE_STR}{itemtypes_list[index]}\n"
+            f"{STATS_STR}{stats_list[index]}\n"
+            f"{START_END_STR}\n"
+            f"{IMAGE_PLACEHOLDERS['FOLIO']}\n"
+            f"{descriptions_list[index]}\n\n"
+            f"Для активации необходимы кодексы: "
+            f"\n{codex_needed_list[index]}\n"
+            )
+            self._create_file(f"results/folios/{folio_name}.md", content)

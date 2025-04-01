@@ -38,16 +38,16 @@
 	- [ ] Предметы Кодексов
 # Main
 - [ ] Добавить все Кодексы
-	- [ ] Наименование
-		- [ ] Свойства
-			- [ ] level
-			- [ ] stats_own
-			- [ ] stats_on
-			- [ ] itemtype
-			- [ ] codex_type
-		- [ ] Placeholder
-		- [ ] Skill
-			- [ ] SkillDescription
+	- [x] Наименование
+		- [x] Свойства
+			- [x] level
+			- [x] stats_own
+			- [x] stats_on
+			- [x] itemtype
+			- [x] codex_type
+		- [x] Placeholder
+		- [x] Skill
+			- [x] SkillDescription
 - [ ] Добавить все Сутры (Фолианты)
 	- [ ] Наменование
 	- [ ] Свойства

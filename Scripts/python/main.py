@@ -6,7 +6,8 @@ from CardGenerator import BestiaryCardGenerator, BestiarySetsCardGenerator, Best
 from CardGenerator import ChimeraTechniquesCardGenerator, BestiaryShineCardGenerator, GlyphsCardGenerator
 from CardGenerator import ChimeraCardGenerator, ChimeraEggCardGenerator, ChimeraItemCardGenerator
 from CardGenerator import ForChimeraCardGenerator, EidolonCardGenerator, EidolonItemCardGenerator
-from CardGenerator import EidolonDiaryCardGenerator, EidolonPillCardGenerator
+from CardGenerator import EidolonDiaryCardGenerator, EidolonPillCardGenerator, CodexCardGenerator
+from CardGenerator import CodexItemCardGenerator, FolioCardGenerator
 from XLSXDataExtractor import XLSXDataExtractor
 from config import DIRECTORIES, FILES, TRIGGERS, COLUMNS
 
@@ -25,7 +26,10 @@ generators = {
     "EIDOLONS": EidolonCardGenerator(),
     "EIDOLON_ITEMS": EidolonItemCardGenerator(),
     "EIDOLON_DIARYS": EidolonDiaryCardGenerator(),
-    "EIDOLON_PILLS": EidolonPillCardGenerator()
+    "EIDOLON_PILLS": EidolonPillCardGenerator(),
+    "CODEXES": CodexCardGenerator(),
+    "CODEX_ITEMS": CodexItemCardGenerator(),
+    "FOLIOS": FolioCardGenerator(),
 }
 xlsx_data_extractor = XLSXDataExtractor()
 

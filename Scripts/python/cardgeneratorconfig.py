@@ -13,6 +13,10 @@ SPEC_TYPE_STR = "spectype: "
 EIDOLON_TYPE_STR = "eidolontype: "
 RARITY_STR = "rarity: "
 EVOLVE_COUNT_STR = "evolvecount: "
+CODEX_LVL_STR = "codexlvl: "
+STATS_OWN_STR = "stats_own: "
+STATS_ON_STR = "stats_on: "
+CODEX_TYPE_STR = "codextype: "
 
 
 IMAGE_PLACEHOLDERS = {
@@ -29,6 +33,9 @@ IMAGE_PLACEHOLDERS = {
     "EIDOLON_ITEM": "![[Temp/Placeholder_Eidolon_Item.png]]",
     "EIDOLON_DIARY": "![[Temp/Placeholder_Eidolon_Diary.png]]",
     "EIDOLON_PILL": "![[Temp/Placeholder_Eidolon_Pill.png]]",
+    "CODEX": "![[Temp/Placeholder_Codex.png]]",
+    "CODEX_ITEM": "![[Temp/Placeholder_Codex_Item.png]]",
+    "FOLIO": "![[Temp/Placeholder_Folio.png]]",
 }
 
 STR_PLACEHOLDERS = {

@@ -13,9 +13,9 @@ TRIGGERS = {
     "EIDOLON_ITEMS": False,
     "EIDOLON_DIARYS": False,
     "EIDOLON_PILLS": False,
-    "CODEXES": True,
+    "CODEXES": False,
     "CODEX_ITEMS": True,
-    "FOLIOS": True,
+    "FOLIOS": False,
 }
 
 DIRECTORIES = ['results',

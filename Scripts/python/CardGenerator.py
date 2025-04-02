@@ -228,7 +228,7 @@ class CodexItemCardGenerator(CardGenerator):
         for index, codex_item_name in enumerate(names_list):
             content =( 
             f"{START_END_STR}\n"
-            f"{ITEM_TYPE_STR}item_types_list[index]\n"
+            f"{ITEM_TYPE_STR}{item_types_list[index]}\n"
             f"{START_END_STR}\n"
             f"{IMAGE_PLACEHOLDERS['CODEX_ITEM']}\n"
             f"{str(descriptions_list[index])}\n"

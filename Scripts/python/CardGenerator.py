@@ -236,7 +236,7 @@ class CodexItemCardGenerator(CardGenerator):
             self._create_file(f"results/codex_items/{codex_item_name}.md", content)
 
 
-class FolioCardGenerator(CardGenerator): # name, description, type, codex_needed, stats
+class FolioCardGenerator(CardGenerator):
     def generate(self, names_list: list, descriptions_list: list, itemtypes_list: list, codex_needed_list: list, stats_list: list):
         for index, folio_name in enumerate(names_list):
             content =( 

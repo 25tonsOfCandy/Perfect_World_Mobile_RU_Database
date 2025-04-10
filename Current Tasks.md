@@ -36,8 +36,17 @@ dv.el("div", `
 		- [x] сундук яшм
 	- [x] Куски талисманов
 	- [ ] Тайны разума
-		- [ ] Бумажки
+		- [ ] Скрижали
+			- [ ] Статы?
+		- [ ] Бумажки (откровения)
 			- [ ] Статы
+			- [ ] Откровения содержат статы, описаний у них нет, на каждую скрижаль необходимо создавать наверное файлы по типу TabletName+(Малый/Большой/Совершенный)
+			- [ ] Либо прописывать их в каждой скрижали с возможными статами?
+				- [ ] То есть в виде
+				- [ ] base_stats
+				- [ ] small_tablet_stats_random
+				- [ ] big_tablet_stats_random
+				- [ ] perfect_tablet_stats_random
 
 
 # Main
@@ -72,7 +81,16 @@ dv.el("div", `
 	- [ ] ImagePlaceholder
 	- [ ] Описание
 
-
+- [ ] Скрижали
+	- [ ] Наименование
+	- [ ] Свойства
+		- [ ] base_stats
+		- [ ] small_tablet_stats_random
+		- [ ] big_tablet_stats_random
+		- [ ] perfect_tablet_stats_random
+		- [ ] rarity
+		- [ ] number_slots
+		- [ ] 
 # Заметки
 
 

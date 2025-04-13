@@ -48,8 +48,8 @@ dv.el("div", `
 				- [x] big_tablet_stats_random
 				- [x] perfect_tablet_stats_random
 - [ ] Placeholders
-	- [ ] Talismans
-	- [ ] TalismanParts
+	- [x] Talismans
+	- [x] TalismanParts
 	- [ ] TabletItems
 	- [ ] Tablets
 

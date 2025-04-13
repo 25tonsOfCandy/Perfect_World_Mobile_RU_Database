@@ -1,14 +1,7 @@
 """
 """
 import os
-from CardGenerator import CardGenerator
-from CardGenerator import BestiaryCardGenerator, BestiarySetsCardGenerator, BestiaryPartCardGenerator
-from CardGenerator import ChimeraTechniquesCardGenerator, BestiaryShineCardGenerator, GlyphsCardGenerator
-from CardGenerator import ChimeraCardGenerator, ChimeraEggCardGenerator, ChimeraItemCardGenerator
-from CardGenerator import ForChimeraCardGenerator, EidolonCardGenerator, EidolonItemCardGenerator
-from CardGenerator import EidolonDiaryCardGenerator, EidolonPillCardGenerator, CodexCardGenerator
-from CardGenerator import CodexItemCardGenerator, FolioCardGenerator, TalismanCardGenerator
-from CardGenerator import TalismanPartCardGenerator, TabletCardGenerator, TabletItemCardGenerator
+from CardGenerator import *
 from XLSXDataExtractor import XLSXDataExtractor
 from config import DIRECTORIES, FILES, TRIGGERS, COLUMNS
 
@@ -35,6 +28,7 @@ generators = {
     "TALISMAN_PARTS": TalismanPartCardGenerator(),
     "TABLETS": TabletCardGenerator(),
     "TABLET_ITEMS": TabletItemCardGenerator(),
+    "JASPERS": JasperCardGenerator(),
 }
 xlsx_data_extractor = XLSXDataExtractor()
 

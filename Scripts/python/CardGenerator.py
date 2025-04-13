@@ -315,3 +315,17 @@ class TabletItemCardGenerator(CardGenerator):# name, desc, itemtype
             f"{descriptions_list[index]}\n"
             )
             self._create_file(f"results/tablet_items/{tablet_item_name}.md", content)
+
+
+class JasperCardGenerator(CardGenerator):# name, desc, itemtype, stats
+    def generate(self, names_list: list, descriptions_list: list, itemtypes_list: list, stats_list: list):
+        for index, jasper_name in enumerate(names_list):
+            content =( 
+            f"{START_END_STR}\n"
+            f"{ITEM_TYPE_STR}{itemtypes_list[index]}\n"
+            f"{STATS_STR}{stats_list[index]}\n"
+            f"{START_END_STR}\n"
+            f"{IMAGE_PLACEHOLDERS['JASPER']}\n"
+            f"{descriptions_list[index]}\n"
+            )
+            self._create_file(f"results/jaspers/{jasper_name}.md", content)

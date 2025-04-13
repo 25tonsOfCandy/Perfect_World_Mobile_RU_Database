@@ -52,61 +52,62 @@ dv.el("div", `
 	- [x] TalismanParts
 	- [x] TabletItems
 	- [x] Tablets
-- [ ] Генераторы
-	- [ ] Талисманы
-	- [ ] Части талисманов
-	- [ ] Скрижали
-	- [ ] Предметы скрижалей
+- [x] Генераторы
+	- [x] Талисманы
+	- [x] Части талисманов
+	- [x] Скрижали
+	- [x] Предметы скрижалей
+- [x] Переместить все скрижали в механики
 
 
 # Main
 
-- [ ] Талисманы
-	- [ ] Наименование
-	- [ ] Свойства
-		- [ ] source
-		- [ ] activate_silver_num
-		- [ ] parts_needed
-		- [ ] jasper_slots
-	- [ ] ImagePlaceholder
-	- [ ] Описание
-- [ ] Яшма
-	- [ ] Наименование
-	- [ ] Свойства
-		- [ ] itemtype
-		- [ ] stats
-	- [ ] ImagePlaceholder
-	- [ ] Описание
+- [x] Талисманы
+	- [x] Наименование
+	- [x] Свойства
+		- [x] source
+		- [x] activate_silver_num
+		- [x] parts_needed
+		- [x] jasper_slots
+	- [x] ImagePlaceholder
+	- [x] Описание
+- [x] Яшма
+	- [x] Наименование
+	- [x] Свойства
+		- [x] itemtype
+		- [x] stats
+	- [x] ImagePlaceholder
+	- [x] Описание
 
-- [ ] Сундук Яшм/Кусок сундука
-	- [ ] Наименование
-	- [ ] Свойства
-		- [ ] ItemType
-	- [ ] ImagePlaceholder
-	- [ ] Описание
-- [ ] Куски талисманов
-	- [ ] Наименование
-	- [ ] Свойства
-		- [ ] ItemType
-	- [ ] ImagePlaceholder
-	- [ ] Описание
+- [x] Сундук Яшм/Кусок сундука
+	- [x] Наименование
+	- [x] Свойства
+		- [x] ItemType
+	- [x] ImagePlaceholder
+	- [x] Описание
+- [x] Куски талисманов
+	- [x] Наименование
+	- [x] Свойства
+		- [x] ItemType
+	- [x] ImagePlaceholder
+	- [x] Описание
 
-- [ ] Скрижали
-	- [ ] Наименование
-	- [ ] Свойства
-		- [ ] base_stats
-		- [ ] small_tablet_stats_random
-		- [ ] big_tablet_stats_random
-		- [ ] perfect_tablet_stats_random
-		- [ ] rarity
-		- [ ] number_slots
-		- [ ] source
-- [ ] Предметы скрижалей
-	- [ ] Наименование
-	- [ ] Свойства
-		- [ ] itemtype
-	- [ ] ImagePlaceholder
-	- [ ] Описание
+- [x] Скрижали
+	- [x] Наименование
+	- [x] Свойства
+		- [x] base_stats
+		- [x] small_tablet_stats_random
+		- [x] big_tablet_stats_random
+		- [x] perfect_tablet_stats_random
+		- [x] rarity
+		- [x] number_slots
+		- [x] source
+- [x] Предметы скрижалей
+	- [x] Наименование
+	- [x] Свойства
+		- [x] itemtype
+	- [x] ImagePlaceholder
+	- [x] Описание
 # Заметки
 
 

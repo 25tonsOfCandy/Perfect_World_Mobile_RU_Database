@@ -17,6 +17,14 @@ CODEX_LVL_STR = "codexlvl: "
 STATS_OWN_STR = "stats_own: "
 STATS_ON_STR = "stats_on: "
 CODEX_TYPE_STR = "codextype: "
+ACTIVATE_SILVER_COST_STR = "activate_silver_cost: "
+PARTS_NEEDED_STR = "parts_needed: "
+JASPER_SLOTS_STR = "jasper_slots: "
+BASE_STATS_STR = "base_stats: "
+SMALL_TABLET_STATS_STR = "small_tablet_stats: "
+BIG_TABLET_STATS_STR = "big_tablet_stats: "
+PERFECT_TABLET_STATS_STR = "perfect_tablet_stats: "
+NUMBER_SLOTS_STR = "number_slots: "
 
 
 IMAGE_PLACEHOLDERS = {
@@ -36,6 +44,10 @@ IMAGE_PLACEHOLDERS = {
     "CODEX": "![[Temp/Placeholder_Codex.png]]",
     "CODEX_ITEM": "![[Temp/Placeholder_Codex_Item.png]]",
     "FOLIO": "![[Temp/Placeholder_Folio.png]]",
+    "TALISMAN": "![[Temp/Placeholder_Talisman.png]]",
+    "TALISMAN_PART": "![[Temp/Placeholder_Talisman_Part.png]]",
+    "TABLET": "![[Temp/Placeholder_Tablet.png]]",
+    "TABLET_ITEM": "![[Temp/Placeholder_Tablet_Item.png]]",
 }
 
 STR_PLACEHOLDERS = {

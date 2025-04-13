@@ -16,6 +16,11 @@ TRIGGERS = {
     "CODEXES": False,
     "CODEX_ITEMS": True,
     "FOLIOS": False,
+    "TALISMANS": True,
+    "TALISMAN_PARTS": True,
+    "TABLETS": True,
+    "TABLET_ITEMS": True,
+
 }
 
 DIRECTORIES = ['results',
@@ -35,7 +40,11 @@ DIRECTORIES = ['results',
             'results/eidolon_pills',
             "results/codexes",
             "results/codex_items",
-            "results/folios"] 
+            "results/folios",
+            "results/talismans",
+            "results/talisman_parts",
+            "results/tablets",
+            "results/tablet_items"] 
 
 
 FILES = {
@@ -56,6 +65,10 @@ FILES = {
     "CODEXES": "SourceTables/Codexes.xlsx",
     "CODEX_ITEMS": "SourceTables/CodexItems.xlsx",
     "FOLIOS": "SourceTables/Folios.xlsx",
+    "TALISMANS": "SourceTables/Talismans.xlsx",
+    "TALISMAN_PARTS": "SourceTables/TalismanParts.xlsx",
+    "TABLETS": "SourceTables/Tablets.xlsx",
+    "TABLET_ITEMS": "SourceTables/TabletItems.xlsx",
 }
 
 COLUMNS = {
@@ -76,4 +89,8 @@ COLUMNS = {
     "CODEXES": [2, 5, 3, 4, 6, 7, 8],
     "CODEX_ITEMS": [2, 4, 3],
     "FOLIOS": [2, 5, 3, 4, 6],  
+    "TALISMANS": [3, 7, 4, 5, 6, 8], # name, desc, parts_needed, activate_silver_cost, jasper_slot, source 
+    "TALISMAN_PARTS": [2, 4, 3], 
+    "TABLETS": [3, 2, 4, 5, 6, 7 , 8, 9, 10],
+    "TABLET_ITEMS": [3, 5, 4], 
 }

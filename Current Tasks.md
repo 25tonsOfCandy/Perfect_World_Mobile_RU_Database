@@ -47,11 +47,16 @@ dv.el("div", `
 				- [x] small_tablet_stats_random
 				- [x] big_tablet_stats_random
 				- [x] perfect_tablet_stats_random
-- [ ] Placeholders
+- [x] Placeholders
 	- [x] Talismans
 	- [x] TalismanParts
-	- [ ] TabletItems
-	- [ ] Tablets
+	- [x] TabletItems
+	- [x] Tablets
+- [ ] Генераторы
+	- [ ] Талисманы
+	- [ ] Части талисманов
+	- [ ] Скрижали
+	- [ ] Предметы скрижалей
 
 
 # Main
@@ -96,6 +101,12 @@ dv.el("div", `
 		- [ ] rarity
 		- [ ] number_slots
 		- [ ] source
+- [ ] Предметы скрижалей
+	- [ ] Наименование
+	- [ ] Свойства
+		- [ ] itemtype
+	- [ ] ImagePlaceholder
+	- [ ] Описание
 # Заметки
 
 

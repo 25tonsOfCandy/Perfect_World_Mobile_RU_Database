@@ -250,3 +250,68 @@ class FolioCardGenerator(CardGenerator):
             f"\n{codex_needed_list[index]}\n"
             )
             self._create_file(f"results/folios/{folio_name}.md", content)
+
+
+class TalismanCardGenerator(CardGenerator):
+    def generate(self, names_list: list, descriptions_list: list, parts_needed_list: list, activate_silver_cost_list: list, jasper_slots_list: list, sources_list: list):
+        for index, talisman_name in enumerate(names_list):
+            content =( 
+            f"{START_END_STR}\n"
+            f"{ACTIVATE_SILVER_COST_STR}{activate_silver_cost_list[index]}\n"
+            f"{PARTS_NEEDED_STR}{parts_needed_list[index]}\n"
+            f"{JASPER_SLOTS_STR}{jasper_slots_list[index]}\n"
+            f"{SOURCE_STR}{sources_list[index]}\n"
+            f"{START_END_STR}\n"
+            f"{IMAGE_PLACEHOLDERS['TALISMAN']}\n"
+            f"{descriptions_list[index]}\n"
+            )
+            self._create_file(f"results/talismans/{talisman_name}.md", content)
+
+
+class TalismanPartCardGenerator(CardGenerator):
+    def generate(self, names_list: list, descriptions_list: list, itemtypes_list: list):
+        for index, talisman_part_name in enumerate(names_list):
+            content =( 
+            f"{START_END_STR}\n"
+            f"{ITEM_TYPE_STR}{itemtypes_list[index]}\n"
+            f"{START_END_STR}\n"
+            f"{IMAGE_PLACEHOLDERS['TALISMAN_PART']}\n"
+            f"{descriptions_list[index]}\n"
+            )
+            self._create_file(f"results/talisman_parts/{talisman_part_name}.md", content)
+
+
+class TabletCardGenerator(CardGenerator): # name, desc, rarity, number_slots, base_stats, small_tablet_stats, big_tablet_stats, perfect_tablet_stats, source
+    def generate(self, names_list: list, descriptions_list: list, rarities_list: list, 
+                 number_slots_list: list, base_stats_list: list, 
+                 small_tablet_stats_list: list, big_tablet_stats_list: list, 
+                 perfect_tablet_stats_list: list, sources_list: list):
+
+        for index, tablet_name in enumerate(names_list):
+            content =( 
+            f"{START_END_STR}\n"
+            f"{RARITY_STR}{rarities_list[index]}\n"
+            f"{NUMBER_SLOTS_STR}{number_slots_list[index]}\n"
+            f"{STATS_STR}{base_stats_list[index]}\n"
+            f"{SMALL_TABLET_STATS_STR}{small_tablet_stats_list[index]}\n"
+            f"{BIG_TABLET_STATS_STR}{big_tablet_stats_list[index]}\n"
+            f"{PERFECT_TABLET_STATS_STR}{perfect_tablet_stats_list[index]}\n"
+            f"{SOURCE_STR}{sources_list[index]}\n"
+            f"{START_END_STR}\n"
+            f"{IMAGE_PLACEHOLDERS['TABLET']}\n"
+            f"{descriptions_list[index]}\n"
+            )
+            self._create_file(f"results/tablets/{tablet_name}.md", content)
+
+
+class TabletItemCardGenerator(CardGenerator):# name, desc, itemtype
+    def generate(self, names_list: list, descriptions_list: list, itemtypes_list: list):
+        for index, tablet_item_name in enumerate(names_list):
+            content =( 
+            f"{START_END_STR}\n"
+            f"{ITEM_TYPE_STR}{itemtypes_list[index]}\n"
+            f"{START_END_STR}\n"
+            f"{IMAGE_PLACEHOLDERS['TABLET_ITEM']}\n"
+            f"{descriptions_list[index]}\n"
+            )
+            self._create_file(f"results/tablet_items/{tablet_item_name}.md", content)

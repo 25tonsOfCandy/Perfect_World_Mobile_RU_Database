@@ -20,7 +20,8 @@ TRIGGERS = {
     "TALISMAN_PARTS": False,
     "TABLETS": False,
     "TABLET_ITEMS": False,
-    "JASPERS": True,
+    "JASPERS": False,
+    "ARTIFACTS": True,
 }
 
 DIRECTORIES = ['results',
@@ -45,7 +46,8 @@ DIRECTORIES = ['results',
             "results/talisman_parts",
             "results/tablets",
             "results/tablet_items",
-            "results/jaspers"] 
+            "results/jaspers",
+            "results/artifacts"] 
 
 
 FILES = {
@@ -71,6 +73,7 @@ FILES = {
     "TABLETS": "SourceTables/Tablets.xlsx",
     "TABLET_ITEMS": "SourceTables/TabletItems.xlsx",
     "JASPERS": "SourceTables/Jaspers.xlsx",
+    "ARTIFACTS": "SourceTables/Artifacts.xlsx",
 }
 
 COLUMNS = {
@@ -96,4 +99,5 @@ COLUMNS = {
     "TABLETS": [3, 2, 4, 5, 6, 7 , 8, 9, 10],
     "TABLET_ITEMS": [3, 5, 4],
     "JASPERS": [3, 5, 4, 6], 
+    "ARTIFACTS": [3, 12, 13, 14, 4, 5, 9, 10, 11, 6, 7, 8], 
 }

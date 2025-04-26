@@ -29,6 +29,7 @@ generators = {
     "TABLETS": TabletCardGenerator(),
     "TABLET_ITEMS": TabletItemCardGenerator(),
     "JASPERS": JasperCardGenerator(),
+    "ARTIFACTS": ArtifactCardGenerator(),
 }
 xlsx_data_extractor = XLSXDataExtractor()
 

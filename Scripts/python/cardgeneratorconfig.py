@@ -25,6 +25,9 @@ SMALL_TABLET_STATS_STR = "small_tablet_stats: "
 BIG_TABLET_STATS_STR = "big_tablet_stats: "
 PERFECT_TABLET_STATS_STR = "perfect_tablet_stats: "
 NUMBER_SLOTS_STR = "number_slots: "
+ACTIVATION_BONUS_STR = "activation_bonus: "
+ENGRAVING_STATS_STR = "engraving_stats: "
+ENGRAVING_STAGE_BONUS_STR = "engraving_stage_bonus: "
 
 
 IMAGE_PLACEHOLDERS = {
@@ -49,10 +52,12 @@ IMAGE_PLACEHOLDERS = {
     "TABLET": "![[Temp/Placeholder_Tablet.png]]",
     "TABLET_ITEM": "![[Temp/Placeholder_Tablet_Item.png]]",
     "JASPER": "![[Temp/Placeholder_Jasper.png]]",
+    "ARTIFACT": "![[Temp/Placeholder_Artifact.png]]",
 }
 
 STR_PLACEHOLDERS = {
     "SKILL_NAME": "SkillNamePlaceholder",
     "EIDOLON_SKILL_NAME": f"\nEidolonSkillNamePlaceholder\n\n2\n\n3",
     "DESCRIPTION": "DescriptionPlaceholder",
+    "ACTIVE_SKILL": "#Активный скилл",
 }

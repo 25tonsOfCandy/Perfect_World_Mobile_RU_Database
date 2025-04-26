@@ -53,6 +53,7 @@ IMAGE_PLACEHOLDERS = {
     "TABLET_ITEM": "![[Temp/Placeholder_Tablet_Item.png]]",
     "JASPER": "![[Temp/Placeholder_Jasper.png]]",
     "ARTIFACT": "![[Temp/Placeholder_Artifact.png]]",
+    "ARTIFACT_ITEM": "![[Temp/Placeholder_Artifact_Item.png]]",
 }
 
 STR_PLACEHOLDERS = {

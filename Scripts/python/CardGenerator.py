@@ -331,7 +331,7 @@ class JasperCardGenerator(CardGenerator):# name, desc, itemtype, stats
             self._create_file(f"results/jaspers/{jasper_name}.md", content)
 
 
-class ArtifactCardGenerator(CardGenerator): # name, activation_stat, engraving_stats, engraving_stage_bonus, source, active_skill, passive_skill_name1, passive_skill_name2, passive_skill_name3, passive_skill1, passive_skill2, passive_skill3
+class ArtifactCardGenerator(CardGenerator):
     def generate(self, names_list: list, activation_stats_list: list, 
                  engraving_stats_list: list, engraving_stage_bonus_list: list, 
                  sources_list: list, active_skills_list: list,
@@ -353,3 +353,16 @@ class ArtifactCardGenerator(CardGenerator): # name, activation_stat, engraving_s
             f"#{passive_skill_names3_list[index]}: \n{passive_skills3_list[index]}\n"
             )
             self._create_file(f"results/artifacts/{artifact_name}.md", content)
+
+
+class ArtifactItemCardGenerator(CardGenerator):# name, desc, item_type
+    def generate(self, names_list: list, descriptions_list: list, item_types_list: list):
+        for index, artifact_item_name in enumerate(names_list):
+            content =( 
+            f"{START_END_STR}\n"
+            f"{ITEM_TYPE_STR}{item_types_list[index]}\n"
+            f"{START_END_STR}\n"
+            f"{IMAGE_PLACEHOLDERS['ARTIFACT_ITEM']}\n"
+            f"{descriptions_list[index]}\n"
+            )
+            self._create_file(f"results/artifact_items/{artifact_item_name}.md", content)

@@ -21,7 +21,8 @@ TRIGGERS = {
     "TABLETS": False,
     "TABLET_ITEMS": False,
     "JASPERS": False,
-    "ARTIFACTS": True,
+    "ARTIFACTS": False,
+    "ARTIFACT_ITEMS": True,
 }
 
 DIRECTORIES = ['results',
@@ -47,7 +48,8 @@ DIRECTORIES = ['results',
             "results/tablets",
             "results/tablet_items",
             "results/jaspers",
-            "results/artifacts"] 
+            "results/artifacts",
+            "results/artifact_items"] 
 
 
 FILES = {
@@ -74,6 +76,7 @@ FILES = {
     "TABLET_ITEMS": "SourceTables/TabletItems.xlsx",
     "JASPERS": "SourceTables/Jaspers.xlsx",
     "ARTIFACTS": "SourceTables/Artifacts.xlsx",
+    "ARTIFACT_ITEMS": "SourceTables/ArtifactItems.xlsx",
 }
 
 COLUMNS = {
@@ -99,5 +102,6 @@ COLUMNS = {
     "TABLETS": [3, 2, 4, 5, 6, 7 , 8, 9, 10],
     "TABLET_ITEMS": [3, 5, 4],
     "JASPERS": [3, 5, 4, 6], 
-    "ARTIFACTS": [3, 12, 13, 14, 4, 5, 9, 10, 11, 6, 7, 8], 
+    "ARTIFACTS": [3, 12, 13, 14, 4, 5, 9, 10, 11, 6, 7, 8],
+    "ARTIFACT_ITEMS": [2, 4, 3], 
 }

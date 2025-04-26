@@ -21,8 +21,8 @@ TRIGGERS = {
     "TABLETS": False,
     "TABLET_ITEMS": False,
     "JASPERS": False,
-    "ARTIFACTS": False,
-    "ARTIFACT_ITEMS": True,
+    "ARTIFACTS": True,
+    "ARTIFACT_ITEMS": False,
 }
 
 DIRECTORIES = ['results',

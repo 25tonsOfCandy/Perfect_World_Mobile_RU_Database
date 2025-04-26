@@ -60,5 +60,5 @@ STR_PLACEHOLDERS = {
     "SKILL_NAME": "SkillNamePlaceholder",
     "EIDOLON_SKILL_NAME": f"\nEidolonSkillNamePlaceholder\n\n2\n\n3",
     "DESCRIPTION": "DescriptionPlaceholder",
-    "ACTIVE_SKILL": "#Активный скилл",
+    "ACTIVE_SKILL": "# Активный скилл",
 }

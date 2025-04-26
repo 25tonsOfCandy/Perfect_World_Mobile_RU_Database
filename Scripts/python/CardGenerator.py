@@ -348,9 +348,9 @@ class ArtifactCardGenerator(CardGenerator):
             f"{IMAGE_PLACEHOLDERS['ARTIFACT']}\n"
             f"{STR_PLACEHOLDERS['ACTIVE_SKILL']}\n"
             f"{active_skills_list[index]}\n\n"
-            f"#{passive_skill_names1_list[index]}: \n{passive_skills1_list[index]}\n"
-            f"#{passive_skill_names2_list[index]}: \n{passive_skills2_list[index]}\n"
-            f"#{passive_skill_names3_list[index]}: \n{passive_skills3_list[index]}\n"
+            f"# {passive_skill_names1_list[index]}: \n{passive_skills1_list[index]}\n"
+            f"# {passive_skill_names2_list[index]}: \n{passive_skills2_list[index]}\n"
+            f"# {passive_skill_names3_list[index]}: \n{passive_skills3_list[index]}\n"
             )
             self._create_file(f"results/artifacts/{artifact_name}.md", content)
 

@@ -31,6 +31,8 @@ generators = {
     "JASPERS": JasperCardGenerator(),
     "ARTIFACTS": ArtifactCardGenerator(),
     "ARTIFACT_ITEMS": ArtifactItemCardGenerator(),
+    "RUNES": RuneCardGenerator(),
+    "RUNE_BUFFS": RuneBuffCardGenerator(),
 }
 xlsx_data_extractor = XLSXDataExtractor()
 

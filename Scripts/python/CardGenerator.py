@@ -366,3 +366,33 @@ class ArtifactItemCardGenerator(CardGenerator):# name, desc, item_type
             f"{descriptions_list[index]}\n"
             )
             self._create_file(f"results/artifact_items/{artifact_item_name}.md", content)
+
+
+class RuneCardGenerator(CardGenerator): # name, stats, rarity, rune_type
+    def generate(self, names_list: list, stats_list: list, rarities_list: list, rune_types_list: list):
+        for index, rune_name in enumerate(names_list):
+            content =( 
+            f"{START_END_STR}\n"
+            f"{STATS_STR}{stats_list[index]}\n"
+            f"{RARITY_STR}{rarities_list[index]}\n"
+            f"{RUNE_TYPE_STR}{rune_types_list[index]}\n"
+            f"{START_END_STR}\n"
+            f"{IMAGE_PLACEHOLDERS['RUNE']}\n"
+            )
+            self._create_file(f"results/runes/{rune_name}.md", content)
+
+
+class RuneBuffCardGenerator(CardGenerator): # # name, rune_type, rune_skill, class
+    def generate(self, names_list: list, rune_types_list: list, rune_skills_list: list, classes_list: list):
+        for index, rune_buff_name in enumerate(names_list):
+            if classes_list[index] == "Class": continue
+            
+            content =( 
+            f"{START_END_STR}\n"
+            f"{RUNE_TYPE_STR}{rune_types_list[index]}\n"
+            f"{CLASS_STR}{classes_list[index]}\n"
+            f"{START_END_STR}\n"
+            f"{IMAGE_PLACEHOLDERS['RUNE_BUFF']}\n"
+            f"{rune_skills_list[index]}\n"
+            )
+            self._create_file(f"results/rune_buffs/{classes_list[index]}/{rune_buff_name}.md", content)

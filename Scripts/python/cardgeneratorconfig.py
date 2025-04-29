@@ -28,6 +28,8 @@ NUMBER_SLOTS_STR = "number_slots: "
 ACTIVATION_BONUS_STR = "activation_bonus: "
 ENGRAVING_STATS_STR = "engraving_stats: "
 ENGRAVING_STAGE_BONUS_STR = "engraving_stage_bonus: "
+RUNE_TYPE_STR = "rune_type: "
+CLASS_STR = "class: "
 
 
 IMAGE_PLACEHOLDERS = {
@@ -54,6 +56,8 @@ IMAGE_PLACEHOLDERS = {
     "JASPER": "![[Temp/Placeholder_Jasper.png]]",
     "ARTIFACT": "![[Temp/Placeholder_Artifact.png]]",
     "ARTIFACT_ITEM": "![[Temp/Placeholder_Artifact_Item.png]]",
+    "RUNE": "![[Temp/Placeholder_Rune.png]]",
+    "RUNE_BUFF": "![[Temp/Placeholder_Rune_Buff.png]]",
 }
 
 STR_PLACEHOLDERS = {

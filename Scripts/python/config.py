@@ -21,8 +21,10 @@ TRIGGERS = {
     "TABLETS": False,
     "TABLET_ITEMS": False,
     "JASPERS": False,
-    "ARTIFACTS": True,
+    "ARTIFACTS": False,
     "ARTIFACT_ITEMS": False,
+    "RUNES": True,
+    "RUNE_BUFFS": True,
 }
 
 DIRECTORIES = ['results',
@@ -49,7 +51,23 @@ DIRECTORIES = ['results',
             "results/tablet_items",
             "results/jaspers",
             "results/artifacts",
-            "results/artifact_items"] 
+            "results/artifact_items",
+            "results/runes",
+            "results/rune_buffs",
+            "results/rune_buffs/Убийца",
+            "results/rune_buffs/Лучник",
+            "results/rune_buffs/Маг",
+            "results/rune_buffs/Друид",
+            "results/rune_buffs/Чародей",
+            "results/rune_buffs/Жрец",
+            "results/rune_buffs/Оборотень",
+            "results/rune_buffs/Оккультист",
+            "results/rune_buffs/Воин",
+            "results/rune_buffs/Общий",
+            "results/rune_buffs/Страж",
+            "results/rune_buffs/Жнец",
+            "results/rune_buffs/Стрелок",
+            "results/rune_buffs/Призрак",] 
 
 
 FILES = {
@@ -77,6 +95,8 @@ FILES = {
     "JASPERS": "SourceTables/Jaspers.xlsx",
     "ARTIFACTS": "SourceTables/Artifacts.xlsx",
     "ARTIFACT_ITEMS": "SourceTables/ArtifactItems.xlsx",
+    "RUNES": "SourceTables/Runes.xlsx",
+    "RUNE_BUFFS": "SourceTables/RuneBuffs.xlsx"
 }
 
 COLUMNS = {
@@ -97,11 +117,13 @@ COLUMNS = {
     "CODEXES": [2, 5, 3, 4, 6, 7, 8],
     "CODEX_ITEMS": [2, 4, 3],
     "FOLIOS": [2, 5, 3, 4, 6],  
-    "TALISMANS": [3, 7, 4, 5, 6, 8], # name, desc, parts_needed, activate_silver_cost, jasper_slot, source 
+    "TALISMANS": [3, 7, 4, 5, 6, 8],
     "TALISMAN_PARTS": [2, 4, 3], 
     "TABLETS": [3, 2, 4, 5, 6, 7 , 8, 9, 10],
     "TABLET_ITEMS": [3, 5, 4],
     "JASPERS": [3, 5, 4, 6], 
     "ARTIFACTS": [3, 12, 13, 14, 4, 5, 9, 10, 11, 6, 7, 8],
-    "ARTIFACT_ITEMS": [2, 4, 3], 
+    "ARTIFACT_ITEMS": [2, 4, 3],
+    "RUNES": [1, 2, 3, 4], 
+    "RUNE_BUFFS": [3, 6, 7, 5],
 }
